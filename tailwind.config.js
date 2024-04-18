@@ -43,6 +43,10 @@ export default {
       bebas: ['BebasNeue', 'sans-serif'],
       JalnanGothic: ['JalnanGothic', 'sans-serif'],
     },
+    boxShadow: {
+      primary: '0px 0px 8px 4px rgba(15, 186, 116, 0.2)',
+    },
+    scrollBehavior: ['smooth', 'auto'],
   },
   plugins: [],
 };

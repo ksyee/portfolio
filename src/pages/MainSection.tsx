@@ -7,13 +7,6 @@ export default function Ma4nSection() {
   const name = '강선영';
   // const [viewHeight, setViewHeight] = useState<number>(window.innerHeight);
 
-  const scrollToNextSection = () => {
-    window.scrollTo({
-      top: document.documentElement.scrollHeight,
-      behavior: 'smooth',
-    });
-  };
-
   // useEffect(() => {
   //   const handleResize = () => {
   //     setViewHeight(window.innerHeight);
@@ -67,17 +60,17 @@ export default function Ma4nSection() {
           portfolio
         </motion.span>
       </h1>
-      <button
+      <a
+        href="#about-me"
         className="absolute bottom-100px left-1/2 -translate-x-1/2"
         aria-label="스크롤 버튼"
-        onClick={scrollToNextSection}
       >
         <img src={mouseIcon} />
         <img
           src={arrowDownAnimation}
           className="absolute left-[calc(50%-12px)] mt-8px w-24px animate-bounce"
         />
-      </button>
+      </a>
     </section>
   );
 }

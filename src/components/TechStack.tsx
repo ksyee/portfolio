@@ -1,7 +1,8 @@
+import SectionTitle from '@/components/SectionTitle';
 export default function TechStack() {
   return (
-    <section className="mx-auto w-[90%] bg-primary text-white">
-      <h2>기술 스택</h2>
+    <section className="mx-auto w-full bg-primary text-white">
+      <SectionTitle title={'Skill'} />
       <ul>
         <li>HTML</li>
         <li>CSS</li>

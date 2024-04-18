@@ -5,8 +5,6 @@ import { loadSlim } from 'tsparticles-slim';
 
 export default function UserParticles() {
   const particlesInit = useCallback(async (engine: Engine) => {
-    console.log(engine);
-
     await loadSlim(engine);
   }, []);
 
