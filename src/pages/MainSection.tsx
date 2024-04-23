@@ -5,15 +5,13 @@ import UserParticles from '@/components/UserParticles';
 
 export default function Ma4nSection() {
   const name = '강선영';
-  // const [viewHeight, setViewHeight] = useState<number>(window.innerHeight);
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setViewHeight(window.innerHeight);
-  //   };
-
-  //   window.addEventListener('resize', handleResize);
-  // }, []);
+  const handleScroll = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth',
+    });
+  };
 
   return (
     <section className="relative h-screen w-full">
@@ -60,8 +58,8 @@ export default function Ma4nSection() {
           portfolio
         </motion.span>
       </h1>
-      <a
-        href="#about-me"
+      <button
+        onClick={handleScroll}
         className="absolute bottom-100px left-1/2 -translate-x-1/2"
         aria-label="스크롤 버튼"
       >
@@ -70,7 +68,7 @@ export default function Ma4nSection() {
           src={arrowDownAnimation}
           className="absolute left-[calc(50%-12px)] mt-8px w-24px animate-bounce"
         />
-      </a>
+      </button>
     </section>
   );
 }

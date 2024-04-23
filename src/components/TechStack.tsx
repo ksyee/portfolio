@@ -1,7 +1,7 @@
 import SectionTitle from '@/components/SectionTitle';
 export default function TechStack() {
   return (
-    <section className="mx-auto w-full bg-primary text-white">
+    <section className="mx-auto w-full cursor-default bg-primary px-32px py-16px text-white">
       <SectionTitle title={'Skill'} />
       <ul>
         <li>HTML</li>
