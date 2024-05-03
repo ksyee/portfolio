@@ -5,11 +5,11 @@ import Projects from './components/Projects';
 
 export default function App() {
   return (
-    <>
+    <div className="space-y-24px bg-primary">
       <MainSection />
       <AboutMe />
       <Projects />
       <TechStack />
-    </>
+    </div>
   );
 }

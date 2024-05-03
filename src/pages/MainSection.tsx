@@ -63,9 +63,10 @@ export default function Ma4nSection() {
         className="absolute bottom-100px left-1/2 -translate-x-1/2"
         aria-label="스크롤 버튼"
       >
-        <img src={mouseIcon} />
+        <img src={mouseIcon} alt="마우스 아이콘" />
         <img
           src={arrowDownAnimation}
+          alt="화살표 아이콘 - 아래"
           className="absolute left-[calc(50%-12px)] mt-8px w-24px animate-bounce"
         />
       </button>

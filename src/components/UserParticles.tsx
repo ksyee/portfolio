@@ -99,7 +99,7 @@ export default function UserParticles() {
             ],
           },
           size: {
-            value: { min: 3, max: 10 },
+            value: { min: 5, max: 15 },
           },
         },
         detectRetina: false,

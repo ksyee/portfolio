@@ -12,9 +12,13 @@ export default function SectionTitle({ title }: SectionTitleProps) {
       transition={{ duration: 0.6, type: 'spring' }}
       className="font-bebas text-72px text-primary"
     >
-      {title.split('').map((character) => {
-        if (character === ' ') return <span>&nbsp;</span>;
-        return <span className="bounce">{character}</span>;
+      {title.split('').map((character, index) => {
+        if (character === ' ') return <span key={index}>&nbsp;</span>;
+        return (
+          <span key={index} className="bounce">
+            {character}
+          </span>
+        );
       })}
     </motion.h2>
   );

@@ -1,0 +1,36 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "SGI 서울보증보험 클론코딩",
+      "thumbnail": "/src/assets/projects_thumbnail/sgi.png",
+      "description": "SGI 서울보증보험 홈페이지를 클론코딩하였습니다.",
+      "stacks": ["html5", "css3", "javascript"],
+      "anotherStacks": ["jQuery", "Swiperjs"],
+      "liveLink": "https://clone-sgi.vercel.app/",
+      "githubLink": "https://github.com/ksyee/clone_SGI"
+    },
+    {
+      "id": 2,
+      "title": "티빙 클론코딩 사이트 타잉",
+      "thumbnail": "/src/assets/projects_thumbnail/taing.png",
+      "description": "OTT서비스 티빙을 클론코딩한 타잉 사이트입니다.",
+      "stacks": ["html5", "css3", "javascript", "tailwind-css"],
+      "anotherStacks": ["Swiperjs"],
+      "image": "@/assets/projects_thumbnail/taing.png",
+      "liveLink": "https://taing-bice.vercel.app/",
+      "githubLink": "https://github.com/ksyee/taing"
+    },
+    {
+      "id": 3,
+      "title": "분실물 검색 서비스 찾아줘",
+      "thumbnail": "/src/assets/projects_thumbnail/findit.png",
+      "description": "분실물에 대한 정보를 검색할 수 있는 서비스",
+      "stacks": ["html5", "css3", "javascript", "tailwind-css"],
+      "anotherStacks": ["Swiperjs"],
+      "image": "@/assets/projects_thumbnail/findit.png",
+      "liveLink": "https://findmyitem.netlify.app/",
+      "githubLink": "https://github.com/FRONTENDSCHOOL8/find-it?tab=readme-ov-file"
+    }
+  ]
+}

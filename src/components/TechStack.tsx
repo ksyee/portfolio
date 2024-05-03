@@ -8,14 +8,9 @@ export default function TechStack() {
         <li>CSS</li>
         <li>JavaScript</li>
         <li>React</li>
-        <li>Next.js</li>
-        <li>Node.js</li>
-        <li>Express</li>
-        <li>MySQL</li>
-        <li>MongoDB</li>
         <li>Git</li>
         <li>GitHub</li>
-        <li>VSCode</li>
+        <li>supabase</li>
       </ul>
     </section>
   );
