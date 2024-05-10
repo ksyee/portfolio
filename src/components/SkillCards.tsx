@@ -24,7 +24,7 @@ export default function SkillCards({
                 repeatType: 'reverse',
                 ease: 'easeOut',
               }}
-              className="mx-20px aspect-square h-240px w-240px rounded-lg border-2 border-green-600 bg-green-400 pt-8px text-center"
+              className="relative mx-20px aspect-square h-240px w-240px rounded-lg border-2 border-green-600 bg-green-400 px-4px pt-8px text-center"
             >
               <span className="inline-block h-48px w-48px rounded-full bg-green-200 p-8px">
                 <img
@@ -36,7 +36,10 @@ export default function SkillCards({
               <h3 className="text-18px font-semibold text-zinc-100">
                 {skill.name}
               </h3>
-              <div className="mx-auto mt-30px h-40px w-[70%] bg-red-500">
+              <p className="mt-8px w-full rounded-lg bg-green-600 px-4px py-8px text-14px">
+                {skill.description}
+              </p>
+              <div className="absolute bottom-16px left-1/2 mt-30px h-40px w-[70%] -translate-x-1/2 rounded-lg bg-green-600 text-20px leading-40px">
                 {skill.level}
               </div>
             </motion.div>
