@@ -1,14 +1,20 @@
 import SectionTitle from '@/components/SectionTitle';
 import Avatar from '@/components/Avatar';
+import { motion } from 'framer-motion';
 
 export default function AboutMe() {
   return (
     <section
-      className="mx-auto w-full cursor-default bg-primary px-32px text-white tablet:max-w-[1500px]"
+      className="mx-auto w-full max-w-[1500px] cursor-default bg-primary px-32px text-white"
       id="about-me"
     >
-      <SectionTitle title="ABOUT ME" />
-      <div className="mx-auto mt-16px flex flex-col-reverse items-center justify-between gap-16px tablet:flex-row tablet:items-center tablet:gap-32px desktop:px-32px">
+      <SectionTitle title="about me" />
+      <motion.div
+        initial={{ x: 100 }}
+        whileInView={{ x: 0 }}
+        transition={{ duration: 0.6, type: 'spring' }}
+        className="mx-auto mt-16px flex flex-col-reverse items-center justify-between gap-16px tablet:flex-row tablet:items-center tablet:gap-32px desktop:px-32px"
+      >
         <div className="text-center text-16px tablet:text-18px desktop:text-22px">
           <p>방문해주셔서 감사합니다. </p>
           <span className="inline">새로운 것을 배우는 걸 즐기는 개발자, </span>
@@ -27,7 +33,7 @@ export default function AboutMe() {
           </p>
         </div>
         <Avatar />
-      </div>
+      </motion.div>
     </section>
   );
 }

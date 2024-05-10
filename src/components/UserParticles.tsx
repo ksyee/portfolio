@@ -53,9 +53,9 @@ export default function UserParticles() {
         particles: {
           links: {
             color: '#ffffff',
-            distance: 80,
+            distance: 120,
             enable: true,
-            opacity: 0.2,
+            opacity: 0.3,
             width: 1,
           },
           move: {

@@ -8,3 +8,10 @@ export interface Project {
   liveLink: string;
   githubLink: string;
 }
+
+export interface Skill {
+  id: number;
+  name: string;
+  image: string;
+  level: string;
+}

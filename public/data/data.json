@@ -32,5 +32,61 @@
       "liveLink": "https://findmyitem.netlify.app/",
       "githubLink": "https://github.com/FRONTENDSCHOOL8/find-it?tab=readme-ov-file"
     }
+  ],
+  "skills": [
+    {
+      "id": 1,
+      "name": "html",
+      "image": "/src/assets/skills/html.svg",
+      "level": "4/5"
+    },
+    {
+      "id": 2,
+      "name": "css",
+      "image": "/src/assets/skills/css.svg",
+      "level": "4/5"
+    },
+    {
+      "id": 3,
+      "name": "javascript",
+      "image": "/src/assets/skills/javascript.svg",
+      "level": "4/5"
+    },
+    {
+      "id": 4,
+      "name": "react",
+      "image": "/src/assets/skills/react.svg",
+      "level": "3/5"
+    },
+    {
+      "id": 5,
+      "name": "tailwindcss",
+      "image": "/src/assets/skills/tailwindcss.svg",
+      "level": "3/5"
+    },
+    {
+      "id": 6,
+      "name": "git",
+      "image": "/src/assets/skills/git.svg",
+      "level": "3/5"
+    },
+    {
+      "id": 7,
+      "name": "github",
+      "image": "/src/assets/skills/github.svg",
+      "level": "3/5"
+    },
+    {
+      "id": 8,
+      "name": "framer",
+      "image": "/src/assets/skills/framer.svg",
+      "level": "2/5"
+    },
+    {
+      "id": 9,
+      "name": "vite",
+      "image": "/src/assets/skills/vite.svg",
+      "level": "3/5"
+    }
   ]
 }
