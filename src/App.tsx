@@ -2,6 +2,7 @@ import MainSection from '@/pages/MainSection';
 import AboutMe from '@/components/AboutMe';
 import Skills from '@/components/Skills';
 import Projects from './components/Projects';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
@@ -10,6 +11,7 @@ export default function App() {
       <AboutMe />
       <Projects />
       <Skills />
+      <Footer />
     </div>
   );
 }
