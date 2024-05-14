@@ -1,30 +1,22 @@
-# React + TypeScript + Vite
+# Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+개인적인 프로젝트들을 보여주기 위한 포트폴리오 웹페이지입니다.
 
-Currently, two official plugins are available:
+- 동적인 효과를 활용하여 사용자의 흥미를 끌어올림
+- 접근성을 준수하여 스크린리더 사용자도 문제없이 사용할 수 있도록 함
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### 개발 환경
 
-## Expanding the ESLint configuration
+- vite
+- react
+- typescript
+- tailwindcss
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+#### 라이브러리
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- lodash
+- swiperjs
+- framer motion
+- eslint
+- react-tsparticles
+- react-fast-marquee
