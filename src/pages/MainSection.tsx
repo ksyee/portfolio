@@ -5,22 +5,13 @@ import UserParticles from '@/components/UserParticles';
 
 export default function Ma4nSection() {
   const name = '강선영';
-  // const [viewHeight, setViewHeight] = useState<number>(window.innerHeight);
 
-  const scrollToNextSection = () => {
+  const handleScroll = () => {
     window.scrollTo({
-      top: document.documentElement.scrollHeight,
+      top: window.innerHeight,
       behavior: 'smooth',
     });
   };
-
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setViewHeight(window.innerHeight);
-  //   };
-
-  //   window.addEventListener('resize', handleResize);
-  // }, []);
 
   return (
     <section className="relative h-screen w-full">
@@ -68,13 +59,14 @@ export default function Ma4nSection() {
         </motion.span>
       </h1>
       <button
+        onClick={handleScroll}
         className="absolute bottom-100px left-1/2 -translate-x-1/2"
         aria-label="스크롤 버튼"
-        onClick={scrollToNextSection}
       >
-        <img src={mouseIcon} />
+        <img src={mouseIcon} alt="마우스 아이콘" />
         <img
           src={arrowDownAnimation}
+          alt="화살표 아이콘 - 아래"
           className="absolute left-[calc(50%-12px)] mt-8px w-24px animate-bounce"
         />
       </button>

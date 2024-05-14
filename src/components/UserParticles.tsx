@@ -2,11 +2,10 @@ import { useCallback } from 'react';
 import type { Container, Engine } from 'tsparticles-engine';
 import Particles from 'react-tsparticles';
 import { loadSlim } from 'tsparticles-slim';
+import { html5, react, js } from '@/assets/particles/index';
 
 export default function UserParticles() {
   const particlesInit = useCallback(async (engine: Engine) => {
-    console.log(engine);
-
     await loadSlim(engine);
   }, []);
 
@@ -33,7 +32,7 @@ export default function UserParticles() {
             value: '#101820',
           },
         },
-        fpsLimit: 120,
+        fpsLimit: 60,
         interactivity: {
           events: {
             onHover: {
@@ -48,16 +47,15 @@ export default function UserParticles() {
               size: 20,
               duration: 2,
               opacity: 0.8,
-              color: '#0fba74',
             },
           },
         },
         particles: {
           links: {
             color: '#ffffff',
-            distance: 50,
+            distance: 120,
             enable: true,
-            opacity: 0.2,
+            opacity: 0.3,
             width: 1,
           },
           move: {
@@ -66,7 +64,7 @@ export default function UserParticles() {
             outModes: {
               default: 'bounce',
             },
-            random: false,
+            random: true,
             speed: 0.3,
             straight: false,
           },
@@ -75,19 +73,36 @@ export default function UserParticles() {
               enable: true,
               area: 800,
             },
-            value: 30,
+            value: 20,
           },
           opacity: {
             value: 0.3,
           },
           shape: {
-            type: 'circle',
+            type: 'image',
+            image: [
+              {
+                src: html5,
+                width: 100,
+                height: 130,
+              },
+              {
+                src: react,
+                width: 100,
+                height: 100,
+              },
+              {
+                src: js,
+                width: 100,
+                height: 110,
+              },
+            ],
           },
           size: {
-            value: { min: 3, max: 5 },
+            value: { min: 5, max: 15 },
           },
         },
-        detectRetina: true,
+        detectRetina: false,
       }}
     />
   );
