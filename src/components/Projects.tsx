@@ -83,7 +83,7 @@ export default function Projects() {
                         rel="noopener noreferrer"
                         aria-label={`새창으로 ${project.title} 페이지 열기`}
                       >
-                        <i className="ri-external-link-line tablet:text-28px"></i>
+                        <i className="ri-external-link-line text-22px tablet:text-28px"></i>
                       </a>
                       <a
                         href={project.githubLink}
@@ -91,7 +91,7 @@ export default function Projects() {
                         rel="noopener noreferrer"
                         aria-label={`새창으로 ${project.title} 깃허브 저장소 열기`}
                       >
-                        <i className="ri-github-fill tablet:text-28px"></i>
+                        <i className="ri-github-fill text-22px tablet:text-28px"></i>
                       </a>
                     </div>
                   </div>

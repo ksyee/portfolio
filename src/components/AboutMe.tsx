@@ -47,7 +47,6 @@ export default function AboutMe() {
           transition={{ duration: 0.6, type: 'spring' }}
           className="relative mx-auto mt-16px flex flex-col items-center justify-between gap-16px tablet:flex-row  tablet:items-center tablet:gap-32px desktop:px-32px"
         >
-          <span className="absolute left-0 top-0 text-white">click!</span>
           <PeerEvaluationThumb />
           <article
             className="text-center text-16px tablet:text-18px desktop:text-22px"
