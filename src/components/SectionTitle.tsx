@@ -10,7 +10,7 @@ export default function SectionTitle({ title }: SectionTitleProps) {
       initial={{ x: -100 }}
       whileInView={{ x: 0 }}
       transition={{ duration: 0.6, type: 'spring' }}
-      className="font-bebas text-72px text-primary"
+      className="text-72pxr font-bebas text-primary"
     >
       {title.split('').map((character, index) => {
         if (character === ' ') return <span key={index}>&nbsp;</span>;

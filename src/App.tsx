@@ -6,12 +6,13 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div className="space-y-24px overflow-x-hidden bg-primary">
+    <div className="space-y-24pxr overflow-x-hidden bg-primary">
       <MainSection />
       <AboutMe />
-      <Projects />
       <Skills />
+      <Projects />
       <Footer />
     </div>
   );
+  <Skills />;
 }

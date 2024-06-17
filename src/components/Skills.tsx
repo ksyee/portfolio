@@ -1,25 +1,50 @@
-import { useEffect, useState } from 'react';
 import SectionTitle from '@/components/SectionTitle';
-import SkillCards from '@/components/SkillCards';
-import { Skill } from '@/types/globalTypes';
+import Skill from '@/components/Skill';
+import supabase from '@/utils/supabase';
+import { useEffect, useState } from 'react';
+import { Database } from '@/types/supabase';
+import { motion } from 'framer-motion';
+
+type Skill = Database['public']['Tables']['skills']['Row'];
 
 export default function Skills() {
-  const [skills, setSkills] = useState<Skill[]>([]);
+  const [skills, setSkills] = useState<Skill[] | null>([]);
 
   useEffect(() => {
-    fetch('/data/data.json')
-      .then((res) => res.json())
-      .then((data) => setSkills(data.skills))
-      .catch((err) => console.error(err));
+    (async () => {
+      const { data, error } = await supabase
+        .from('skills')
+        .select('*')
+        .order('id', { ascending: true });
+
+      if (error) {
+        console.error(error);
+        setSkills(null);
+        return;
+      }
+
+      setSkills(data);
+    })();
   }, []);
 
   return (
-    <section className="relative mx-auto w-full max-w-[1500px] cursor-default bg-primary px-32px py-16px text-white">
+    <section className="px-32pxr py-16pxr relative mx-auto w-full max-w-[1500px] cursor-default bg-primary text-white">
       <SectionTitle title={'skills'} />
-      <div className="space-y-32px">
-        <SkillCards skills={skills} />
-        <SkillCards skills={skills} direction="right" />
-      </div>
+      <motion.ul
+        initial={{ x: 100 }}
+        whileInView={{ x: 0 }}
+        transition={{ type: 'spring', duration: 0.6 }}
+        className="space-y-32pxr flex flex-wrap"
+      >
+        {skills?.map((skill) => (
+          <Skill
+            key={skill.id}
+            title={skill.title || 'Untitled'}
+            level={skill.level || 0}
+            image={skill.image || ''}
+          />
+        ))}
+      </motion.ul>
     </section>
   );
 }
