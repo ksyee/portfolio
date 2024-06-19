@@ -14,13 +14,13 @@ export default function AboutMe() {
           initial={{ x: 100 }}
           whileInView={{ x: 0 }}
           transition={{ duration: 0.6, type: 'spring' }}
-          className="mt-16pxr gap-16pxr tablet:gap-32pxr desktop:pxr-32pxr mx-auto flex flex-col-reverse items-center justify-between tablet:flex-row tablet:items-center"
+          className="mt-16pxr gap-16pxr md:gap-32pxr lg:pxr-32pxr mx-auto flex flex-col-reverse items-center justify-between md:flex-row md:items-center"
         >
           <article
-            className="text-16pxr tablet:text-18pxr desktop:text-22pxr text-center"
+            className="text-16pxr md:text-18pxr lg:text-22pxr text-center"
             aria-label="강선영의 자기소개글"
           >
-            <p className="text-24pxr mb-4pxr tablet:text-32pxr font-semibold">
+            <p className="text-24pxr mb-4pxr md:text-32pxr font-semibold">
               <span className="block">방문해주셔서 감사합니다.</span>
               <span className="inline">
                 새로운 것을 배우는 걸 즐기는 개발자,{' '}

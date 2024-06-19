@@ -9,6 +9,7 @@ type Skill = Database['public']['Tables']['skills']['Row'];
 
 export default function Skills() {
   const [skills, setSkills] = useState<Skill[] | null>([]);
+  const [animationComplete, setAnimationComplete] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -28,13 +29,14 @@ export default function Skills() {
   }, []);
 
   return (
-    <section className="px-32pxr py-16pxr relative mx-auto w-full max-w-[1500px] cursor-default bg-primary text-white">
+    <section className="relative mx-auto w-full max-w-[1500px] cursor-default bg-primary px-32pxr py-16pxr text-white">
       <SectionTitle title={'skills'} />
       <motion.ul
         initial={{ x: 100 }}
         whileInView={{ x: 0 }}
         transition={{ type: 'spring', duration: 0.6 }}
-        className="space-y-32pxr flex flex-wrap"
+        onAnimationComplete={() => setAnimationComplete(true)}
+        className="flex flex-wrap space-y-32pxr"
       >
         {skills?.map((skill) => (
           <Skill
@@ -42,6 +44,7 @@ export default function Skills() {
             title={skill.title || 'Untitled'}
             level={skill.level || 0}
             image={skill.image || ''}
+            animationComplete={animationComplete}
           />
         ))}
       </motion.ul>
