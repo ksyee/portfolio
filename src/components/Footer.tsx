@@ -2,7 +2,7 @@ import 'remixicon/fonts/remixicon.css';
 
 export default function Footer() {
   return (
-    <footer className="py-24pxr flex flex-col items-center">
+    <footer className="flex flex-col items-center py-24pxr">
       <div className="space-x-10pxr text-white">
         <a
           href="https://github.com/ksyee"
@@ -11,7 +11,11 @@ export default function Footer() {
         >
           <i className="ri-github-fill text-32pxr"></i>
         </a>
-        <a href="" target="_black" rel="noreferrer noopener">
+        <a
+          href="https://ksyee.notion.site/641eb5db82004b3284dcc96f103b0de5"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           <i className="ri-notion-fill text-32pxr"></i>
         </a>
       </div>

@@ -34,9 +34,9 @@ export default function Skills() {
       <motion.ul
         initial={{ x: 100 }}
         whileInView={{ x: 0 }}
-        transition={{ type: 'spring', duration: 0.6 }}
+        transition={{ type: 'spring', duration: 0.7 }}
         onAnimationComplete={() => setAnimationComplete(true)}
-        className="flex flex-wrap space-y-32pxr"
+        className="mt-20pxr flex flex-wrap justify-center gap-32pxr"
       >
         {skills?.map((skill) => (
           <Skill

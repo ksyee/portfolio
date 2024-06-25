@@ -9,8 +9,8 @@ export default function SectionTitle({ title }: SectionTitleProps) {
     <motion.h2
       initial={{ x: -100 }}
       whileInView={{ x: 0 }}
-      transition={{ duration: 0.6, type: 'spring' }}
-      className="text-72pxr font-bebas text-primary"
+      transition={{ duration: 0.7, type: 'spring' }}
+      className="font-bebas text-72pxr text-primary"
     >
       {title.split('').map((character, index) => {
         if (character === ' ') return <span key={index}>&nbsp;</span>;

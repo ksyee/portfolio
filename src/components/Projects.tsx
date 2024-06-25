@@ -17,7 +17,7 @@ export default function Projects() {
       const { data, error } = await supabase
         .from('projects')
         .select('*')
-        .order('id', { ascending: true });
+        .order('id', { ascending: false });
 
       if (error) {
         console.error(error);
@@ -37,8 +37,8 @@ export default function Projects() {
       <motion.ul
         initial={{ x: 100 }}
         whileInView={{ x: 0 }}
-        transition={{ duration: 0.6, type: 'spring' }}
-        className="flex flex-wrap gap-16pxr"
+        transition={{ duration: 0.7, type: 'spring' }}
+        className="grid gap-16pxr md:grid-cols-2"
       >
         {projects.map((project) => {
           return (
@@ -52,16 +52,16 @@ export default function Projects() {
                   alt={project.title ?? undefined}
                   className="mx-auto h-full object-cover transition duration-700 group-hover:scale-105 group-hover:opacity-25"
                 />
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center opacity-0 transition duration-700 group-hover:opacity-100">
-                  <h3 className="mb-16pxr text-24pxr font-semibold">
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 space-y-8pxr text-center opacity-0 transition duration-700 group-hover:opacity-100 md:space-y-16pxr">
+                  <h3 className="text-16pxr font-semibold sm:text-24pxr">
                     {project.title}
                   </h3>
-                  <button className="rounded-md border px-16pxr py-8pxr text-32pxr font-bold">
+                  <button className="rounded-md border px-16pxr py-8pxr text-14pxr font-bold sm:text-20pxr">
                     자세히 보기
                   </button>
                 </div>
               </article>
-              <ProjectDetail />
+              {/* <ProjectDetail /> */}
             </li>
           );
         })}

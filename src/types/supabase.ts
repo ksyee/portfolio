@@ -1,4 +1,4 @@
-export type Json =
+ export type Json =
   | string
   | number
   | boolean
@@ -62,6 +62,7 @@ export type Database = {
       skills: {
         Row: {
           created_at: string
+          description: Json | null
           id: number
           image: string | null
           level: number | null
@@ -69,6 +70,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          description?: Json | null
           id?: number
           image?: string | null
           level?: number | null
@@ -76,6 +78,7 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          description?: Json | null
           id?: number
           image?: string | null
           level?: number | null

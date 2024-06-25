@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 export default function AboutMe() {
   return (
     <section
-      className="px-32pxr mx-auto w-full max-w-[1500px] cursor-default bg-primary text-white"
+      className="mx-auto w-full max-w-[1500px] cursor-default bg-primary px-32pxr text-white"
       id="about-me"
     >
       <SectionTitle title="about me" />
@@ -13,14 +13,14 @@ export default function AboutMe() {
         <motion.div
           initial={{ x: 100 }}
           whileInView={{ x: 0 }}
-          transition={{ duration: 0.6, type: 'spring' }}
-          className="mt-16pxr gap-16pxr md:gap-32pxr lg:pxr-32pxr mx-auto flex flex-col-reverse items-center justify-between md:flex-row md:items-center"
+          transition={{ duration: 0.7, type: 'spring' }}
+          className="lg:pxr-32pxr mx-auto mt-16pxr flex flex-col-reverse items-center justify-between gap-16pxr md:flex-row md:items-center md:gap-32pxr"
         >
           <article
-            className="text-16pxr md:text-18pxr lg:text-22pxr text-center"
+            className="text-center text-16pxr md:text-18pxr lg:text-22pxr"
             aria-label="강선영의 자기소개글"
           >
-            <p className="text-24pxr mb-4pxr md:text-32pxr font-semibold">
+            <p className="mb-4pxr text-24pxr font-semibold md:text-32pxr">
               <span className="block">방문해주셔서 감사합니다.</span>
               <span className="inline">
                 새로운 것을 배우는 걸 즐기는 개발자,{' '}
