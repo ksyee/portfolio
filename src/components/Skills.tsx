@@ -29,7 +29,10 @@ export default function Skills() {
   }, []);
 
   return (
-    <section className="relative mx-auto w-full max-w-[1500px] cursor-default bg-primary px-32pxr py-16pxr text-white">
+    <section
+      className="relative mx-auto w-full max-w-[1500px] cursor-default bg-primary px-32pxr py-16pxr text-white"
+      id="skills"
+    >
       <SectionTitle title={'skills'} />
       <motion.ul
         initial={{ x: 100 }}
