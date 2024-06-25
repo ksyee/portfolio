@@ -1,9 +1,11 @@
 import range from 'lodash/range';
+import aspectRatio from '@tailwindcss/aspect-ratio';
+
 const pxToRem = (px, base = 16) => `${px / base}rem`;
 
 const pxToRemFunc = (start, end) => {
   return range(start, end).reduce((acc, px) => {
-    acc[`${px}px`] = pxToRem(px);
+    acc[`${px}pxr`] = pxToRem(px);
     return acc;
   }, {});
 };
@@ -33,9 +35,9 @@ export default {
         primary: '#0fba74',
       },
       screens: {
-        mobile: '360px',
-        tablet: '768px',
-        desktop: '1280px',
+        sm: '360px',
+        md: '768px',
+        lg: '1280px',
       },
     },
     fontFamily: {
@@ -48,5 +50,5 @@ export default {
     },
     scrollBehavior: ['smooth', 'auto'],
   },
-  plugins: [],
+  plugins: [aspectRatio],
 };
