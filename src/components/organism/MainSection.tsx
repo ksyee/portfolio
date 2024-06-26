@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 import mouseIcon from '@/assets/mouse.png';
 import arrowDownAnimation from '@/assets/arrow-down.png';
-import { UserParticles } from '@/components/molecules/index';
+import { UserParticles } from '@/components/molecules';
 
-export default function Ma4nSection() {
+export function MainSection() {
   const name = '강선영';
 
   const handleScroll = () => {

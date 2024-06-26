@@ -1,9 +1,11 @@
-import MainSection from '@/components/organism/MainSection';
-import AboutMe from '@/components/organism/AboutMe';
-import Skills from '@/components/organism/Skills';
-import Projects from '@/components/organism/Projects';
-import Footer from '@/components/organism/Footer';
-import Navbar from '@/components/organism/Navbar';
+import {
+  Navbar,
+  MainSection,
+  AboutMe,
+  Skills,
+  Projects,
+  Footer,
+} from '@/components/organism';
 
 export default function App() {
   return (

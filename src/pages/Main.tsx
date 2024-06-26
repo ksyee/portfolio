@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
 import supabase from '@/utils/supabase';
-import AboutMe from '@/components/organism/AboutMe';
-import Footer from '@/components/organism/Footer';
-import MainSection from '@/components/organism/MainSection';
-import Projects from '@/components/organism/Projects';
-import Skills from '@/components/organism/Skills';
+
+import {
+  MainSection,
+  AboutMe,
+  Skills,
+  Projects,
+  Footer,
+} from '@/components/organism';
 
 import { useProjectsStore } from '@/stores/projectsStore';
 

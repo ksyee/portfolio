@@ -5,7 +5,7 @@ type Project = {
   thumbnail: string;
 };
 
-export default function ProjectDetail({ project }: { project: Project }) {
+export function ProjectDetail({ project }: { project: Project }) {
   return (
     <motion.section>
       <div className="fixed bg-black bg-opacity-25"></div>

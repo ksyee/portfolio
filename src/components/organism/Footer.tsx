@@ -1,6 +1,6 @@
 import 'remixicon/fonts/remixicon.css';
 
-export default function Footer() {
+export function Footer() {
   return (
     <footer className="flex flex-col items-center py-24pxr">
       <div className="space-x-10pxr text-white">

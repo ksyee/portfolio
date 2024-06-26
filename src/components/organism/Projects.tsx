@@ -1,5 +1,5 @@
 // import { useEffect, useState } from 'react';
-import { SectionTitle } from '@/components/molecules/index';
+import { SectionTitle } from '@/components/molecules';
 import { motion } from 'framer-motion';
 // import { Database } from '@/types/supabase';
 import { useProjectsStore } from '@/stores/projectsStore';
@@ -9,7 +9,7 @@ import 'remixicon/fonts/remixicon.css';
 
 // type Project = Database['public']['Tables']['projects']['Row'];
 
-export default function Projects() {
+export function Projects() {
   const { projects } = useProjectsStore();
 
   // const [projects, setProjects] = useState<Project[]>([]);

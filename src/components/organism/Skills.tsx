@@ -1,4 +1,4 @@
-import { SectionTitle, Skill } from '@/components/molecules/index';
+import { SectionTitle, Skill } from '@/components/molecules';
 import supabase from '@/utils/supabase';
 import { useEffect, useState } from 'react';
 import { Database } from '@/types/supabase';
@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 type Skill = Database['public']['Tables']['skills']['Row'];
 
-export default function Skills() {
+export function Skills() {
   const [skills, setSkills] = useState<Skill[] | null>([]);
   const [animationComplete, setAnimationComplete] = useState(false);
 

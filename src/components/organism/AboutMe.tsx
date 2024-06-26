@@ -1,7 +1,7 @@
-import { SectionTitle, Avatar } from '@/components/molecules/index';
+import { SectionTitle, Avatar } from '@/components/molecules';
 import { motion } from 'framer-motion';
 
-export default function AboutMe() {
+export function AboutMe() {
   return (
     <section
       className="mx-auto w-full max-w-[1500px] cursor-default bg-primary px-32pxr text-white"
