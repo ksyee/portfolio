@@ -4,7 +4,7 @@ interface SectionTitleProps {
   title: string;
 }
 
-export default function SectionTitle({ title }: SectionTitleProps) {
+export function SectionTitle({ title }: SectionTitleProps) {
   return (
     <motion.h2
       initial={{ x: -100 }}

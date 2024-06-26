@@ -4,7 +4,7 @@ import Particles from 'react-tsparticles';
 import { loadSlim } from 'tsparticles-slim';
 import { html5, react, js } from '@/assets/particles/index';
 
-export default function UserParticles() {
+export function UserParticles() {
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);

@@ -1,38 +1,55 @@
-import { useEffect, useState } from 'react';
-import SectionTitle from '@/components/SectionTitle';
+// import { useEffect, useState } from 'react';
+import { SectionTitle } from '@/components/molecules/index';
 import { motion } from 'framer-motion';
-import { Database } from '@/types/supabase';
-import ProjectDetail from '@/components/ProjectDetail';
+// import { Database } from '@/types/supabase';
+import { useProjectsStore } from '@/stores/projectsStore';
 
 import 'remixicon/fonts/remixicon.css';
-import supabase from '@/utils/supabase';
+// import supabase from '@/utils/supabase';
 
-type Project = Database['public']['Tables']['projects']['Row'];
+// type Project = Database['public']['Tables']['projects']['Row'];
 
 export default function Projects() {
-  const [projects, setProjects] = useState<Project[]>([]);
+  const { projects } = useProjectsStore();
 
-  useEffect(() => {
-    (async () => {
-      const { data, error } = await supabase
-        .from('projects')
-        .select('*')
-        .order('id', { ascending: false });
+  // const [projects, setProjects] = useState<Project[]>([]);
 
-      if (error) {
-        console.error(error);
-        setProjects([]);
-        return;
-      }
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const { data, error } = await supabase
+  //         .from('projects')
+  //         .select('*')
+  //         .order('id', { ascending: false });
 
-      setProjects(data);
-    })();
-  }, []);
+  //       console.log(data);
 
-  console.log(projects);
+  //       if (error) {
+  //         throw error;
+  //       }
+
+  //       setProjects(data);
+  //     } catch (error) {
+  //       console.error(error);
+  //       setProjects([]);
+  //     }
+  //   })();
+  // }, []);
+
+  if (!projects.length) {
+    return (
+      <section>
+        <SectionTitle title="projects" />
+        <p className="text-bold text-24pxr">프로젝트가 없습니다.</p>
+      </section>
+    );
+  }
 
   return (
-    <section className="mx-auto max-w-[1500px] overflow-hidden bg-primary px-32pxr text-white">
+    <section
+      className="mx-auto max-w-[1500px] overflow-hidden bg-primary px-32pxr text-white"
+      id="projects"
+    >
       <SectionTitle title="projects" />
       <motion.ul
         initial={{ x: 100 }}
@@ -61,7 +78,6 @@ export default function Projects() {
                   </button>
                 </div>
               </article>
-              {/* <ProjectDetail /> */}
             </li>
           );
         })}

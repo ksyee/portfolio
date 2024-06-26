@@ -52,3 +52,7 @@
     transform: scaleX(1) scaleY(1);
   }
 }
+
+.center {
+  @apply flex items-center justify-center;
+}
