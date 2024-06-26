@@ -1,4 +1,4 @@
-import { SectionTitle, Skill } from '@/components/molecules/index';
+import { SectionTitle, Skill } from '@/components/molecules';
 import supabase from '@/utils/supabase';
 import { useEffect, useState } from 'react';
 import { Database } from '@/types/supabase';
@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 type Skill = Database['public']['Tables']['skills']['Row'];
 
-export default function Skills() {
+export function Skills() {
   const [skills, setSkills] = useState<Skill[] | null>([]);
   const [animationComplete, setAnimationComplete] = useState(false);
 
@@ -29,7 +29,7 @@ export default function Skills() {
 
   return (
     <section
-      className="relative mx-auto w-full max-w-[1500px] cursor-default bg-primary px-32pxr py-16pxr text-white"
+      className="relative mx-auto w-full max-w-[1500px] cursor-default px-32pxr py-16pxr text-white"
       id="skills"
     >
       <SectionTitle title={'skills'} />

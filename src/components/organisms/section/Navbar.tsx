@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
-export default function Navbar() {
-  const [scrollY, setScrollY] = useState<number>(0);
+import { useScrollStore } from '@/stores/scrollStore';
+
+export function Navbar() {
+  const { scrollY, setScrollY } = useScrollStore();
   const [navView, setNavVite] = useState<boolean>(true);
 
   useEffect(() => {

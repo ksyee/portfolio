@@ -1,18 +1,49 @@
-import MainSection from '@/components/organism/MainSection';
-import AboutMe from '@/components/organism/AboutMe';
-import Skills from '@/components/organism/Skills';
-import Projects from '@/components/organism/Projects';
-import Footer from '@/components/organism/Footer';
-import Navbar from '@/components/organism/Navbar';
+import { useEffect } from 'react';
+import supabase from '@/utils/supabase';
+
+import {
+  MainSection,
+  AboutMe,
+  Skills,
+  Projects,
+  Footer,
+  Header,
+} from '@/components/organisms/section';
+
+import { useProjectsStore } from '@/stores/projectsStore';
 
 export default function App() {
+  const { loadProjects } = useProjectsStore();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data, error } = await supabase
+          .from('projects')
+          .select('*')
+          .order('id', { ascending: false });
+
+        if (error) {
+          throw error;
+        }
+
+        loadProjects(data);
+      } catch (error) {
+        console.error(error);
+        loadProjects([]);
+      }
+    })();
+  }, []);
+
   return (
-    <div className="space-y-24pxr overflow-x-hidden scroll-smooth bg-primary">
-      <Navbar />
-      <MainSection />
-      <AboutMe />
-      <Skills />
-      <Projects />
+    <div className="space-y-24pxr overflow-x-hidden bg-primary">
+      <Header />
+      <main>
+        <MainSection />
+        <AboutMe />
+        <Skills />
+        <Projects />
+      </main>
       <Footer />
     </div>
   );

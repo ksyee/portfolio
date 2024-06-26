@@ -1,10 +1,10 @@
-import { SectionTitle, Avatar } from '@/components/molecules/index';
+import { SectionTitle, Avatar } from '@/components/molecules';
 import { motion } from 'framer-motion';
 
-export default function AboutMe() {
+export function AboutMe() {
   return (
     <section
-      className="mx-auto w-full max-w-[1500px] cursor-default bg-primary px-32pxr text-white"
+      className="mx-auto w-full max-w-[1500px] cursor-default px-32pxr text-white"
       id="about-me"
     >
       <SectionTitle title="about me" />
@@ -16,7 +16,7 @@ export default function AboutMe() {
           className="lg:pxr-32pxr mx-auto mt-16pxr flex flex-col-reverse items-center justify-between gap-16pxr md:flex-row md:items-center md:gap-32pxr"
         >
           <article
-            className="text-center text-16pxr md:text-18pxr lg:text-22pxr"
+            className="space-y-8pxr text-center text-16pxr md:text-18pxr lg:text-22pxr"
             aria-label="강선영의 자기소개글"
           >
             <p className="mb-4pxr text-24pxr font-semibold md:text-32pxr">

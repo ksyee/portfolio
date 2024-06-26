@@ -1,0 +1,1 @@
+export { ProjectDetailFindIt } from '@/components/organisms/ProjectDetailModal/ProjectDetailFindIt';
