@@ -1,5 +1,4 @@
-import SectionTitle from '@/components/SectionTitle';
-import Avatar from '@/components/Avatar';
+import { SectionTitle, Avatar } from '@/components/molecules/index';
 import { motion } from 'framer-motion';
 
 export default function AboutMe() {

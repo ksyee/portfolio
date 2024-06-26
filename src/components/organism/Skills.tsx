@@ -1,5 +1,4 @@
-import SectionTitle from '@/components/SectionTitle';
-import Skill from '@/components/Skill';
+import { SectionTitle, Skill } from '@/components/molecules/index';
 import supabase from '@/utils/supabase';
 import { useEffect, useState } from 'react';
 import { Database } from '@/types/supabase';

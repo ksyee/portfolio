@@ -1,35 +1,40 @@
-import { useEffect, useState } from 'react';
-import SectionTitle from '@/components/SectionTitle';
+// import { useEffect, useState } from 'react';
+import { SectionTitle } from '@/components/molecules/index';
 import { motion } from 'framer-motion';
-import { Database } from '@/types/supabase';
+// import { Database } from '@/types/supabase';
+import { useProjectsStore } from '@/stores/projectsStore';
 
 import 'remixicon/fonts/remixicon.css';
-import supabase from '@/utils/supabase';
+// import supabase from '@/utils/supabase';
 
-type Project = Database['public']['Tables']['projects']['Row'];
+// type Project = Database['public']['Tables']['projects']['Row'];
 
 export default function Projects() {
-  const [projects, setProjects] = useState<Project[]>([]);
+  const { projects } = useProjectsStore();
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const { data, error } = await supabase
-          .from('projects')
-          .select('*')
-          .order('id', { ascending: false });
+  // const [projects, setProjects] = useState<Project[]>([]);
 
-        if (error) {
-          throw error;
-        }
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const { data, error } = await supabase
+  //         .from('projects')
+  //         .select('*')
+  //         .order('id', { ascending: false });
 
-        setProjects(data);
-      } catch (error) {
-        console.error(error);
-        setProjects([]);
-      }
-    })();
-  }, []);
+  //       console.log(data);
+
+  //       if (error) {
+  //         throw error;
+  //       }
+
+  //       setProjects(data);
+  //     } catch (error) {
+  //       console.error(error);
+  //       setProjects([]);
+  //     }
+  //   })();
+  // }, []);
 
   if (!projects.length) {
     return (

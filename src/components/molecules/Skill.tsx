@@ -7,12 +7,7 @@ interface SkillProps {
   animationComplete: boolean;
 }
 
-export default function Skill({
-  title,
-  level,
-  image,
-  animationComplete,
-}: SkillProps) {
+export function Skill({ title, level, image, animationComplete }: SkillProps) {
   return (
     <li className="flex gap-50pxr">
       <div className="flex w-120pxr shrink-0 flex-col items-center gap-16pxr">
