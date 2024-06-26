@@ -38,7 +38,10 @@ export default function Projects() {
 
   if (!projects.length) {
     return (
-      <section>
+      <section
+        className="mx-auto max-w-[1500px] overflow-hidden bg-primary px-32pxr text-white"
+        id="projects"
+      >
         <SectionTitle title="projects" />
         <p className="text-bold text-24pxr">프로젝트가 없습니다.</p>
       </section>
