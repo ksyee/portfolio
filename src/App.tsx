@@ -1,20 +1,49 @@
+import { useEffect } from 'react';
+import supabase from '@/utils/supabase';
+
 import {
-  Navbar,
   MainSection,
   AboutMe,
   Skills,
   Projects,
   Footer,
-} from '@/components/organism';
+  Header,
+} from '@/components/organisms/section';
+
+import { useProjectsStore } from '@/stores/projectsStore';
 
 export default function App() {
+  const { loadProjects } = useProjectsStore();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data, error } = await supabase
+          .from('projects')
+          .select('*')
+          .order('id', { ascending: false });
+
+        if (error) {
+          throw error;
+        }
+
+        loadProjects(data);
+      } catch (error) {
+        console.error(error);
+        loadProjects([]);
+      }
+    })();
+  }, []);
+
   return (
-    <div className="space-y-24pxr overflow-x-hidden scroll-smooth bg-primary">
-      <Navbar />
-      <MainSection />
-      <AboutMe />
-      <Skills />
-      <Projects />
+    <div className="space-y-24pxr overflow-x-hidden bg-primary">
+      <Header />
+      <main>
+        <MainSection />
+        <AboutMe />
+        <Skills />
+        <Projects />
+      </main>
       <Footer />
     </div>
   );

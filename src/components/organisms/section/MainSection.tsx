@@ -9,7 +9,6 @@ export function MainSection() {
   const handleScroll = () => {
     window.scrollTo({
       top: window.innerHeight,
-      behavior: 'smooth',
     });
   };
 
@@ -63,11 +62,12 @@ export function MainSection() {
         className="absolute bottom-100pxr left-1/2 -translate-x-1/2"
         aria-label="스크롤 버튼"
       >
-        <img src={mouseIcon} alt="마우스 아이콘" />
+        <img src={mouseIcon} alt="마우스 아이콘" loading="lazy" />
         <img
           src={arrowDownAnimation}
           alt="화살표 아이콘 - 아래"
           className="absolute left-[calc(50%-12px)] mt-8pxr w-24pxr animate-bounce"
+          loading="lazy"
         />
       </button>
     </section>

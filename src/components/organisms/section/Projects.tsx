@@ -1,56 +1,27 @@
-// import { useEffect, useState } from 'react';
-import { SectionTitle } from '@/components/molecules';
 import { motion } from 'framer-motion';
-// import { Database } from '@/types/supabase';
+import { SectionTitle } from '@/components/molecules';
+
 import { useProjectsStore } from '@/stores/projectsStore';
-
-import 'remixicon/fonts/remixicon.css';
-// import supabase from '@/utils/supabase';
-
-// type Project = Database['public']['Tables']['projects']['Row'];
+import { Link, Outlet } from 'react-router-dom';
 
 export function Projects() {
   const { projects } = useProjectsStore();
 
-  // const [projects, setProjects] = useState<Project[]>([]);
-
-  // useEffect(() => {
-  //   (async () => {
-  //     try {
-  //       const { data, error } = await supabase
-  //         .from('projects')
-  //         .select('*')
-  //         .order('id', { ascending: false });
-
-  //       console.log(data);
-
-  //       if (error) {
-  //         throw error;
-  //       }
-
-  //       setProjects(data);
-  //     } catch (error) {
-  //       console.error(error);
-  //       setProjects([]);
-  //     }
-  //   })();
-  // }, []);
-
   if (!projects.length) {
     return (
       <section
-        className="mx-auto max-w-[1500px] overflow-hidden bg-primary px-32pxr text-white"
+        className="mx-auto max-w-[1500px] overflow-hidden px-32pxr text-white"
         id="projects"
       >
         <SectionTitle title="projects" />
-        <p className="text-bold text-24pxr">프로젝트가 없습니다.</p>
+        <p className="text-bold text-24pxr">프로젝트를 로드하지 못했습니다.</p>
       </section>
     );
   }
 
   return (
     <section
-      className="mx-auto max-w-[1500px] overflow-hidden bg-primary px-32pxr text-white"
+      className="mx-auto max-w-[1500px] overflow-hidden px-32pxr text-white"
       id="projects"
     >
       <SectionTitle title="projects" />
@@ -76,15 +47,19 @@ export function Projects() {
                   <h3 className="text-16pxr font-semibold sm:text-24pxr">
                     {project.title}
                   </h3>
-                  <button className="rounded-md border px-16pxr py-8pxr text-14pxr font-bold sm:text-20pxr">
+                  <Link
+                    to={`/${project.id}`}
+                    className="rounded-md border px-16pxr py-8pxr text-14pxr font-bold sm:text-20pxr"
+                  >
                     자세히 보기
-                  </button>
+                  </Link>
                 </div>
               </article>
             </li>
           );
         })}
       </motion.ul>
+      <Outlet />
     </section>
   );
 }
