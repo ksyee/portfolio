@@ -38,7 +38,7 @@ export default function App() {
   return (
     <div className="space-y-24pxr overflow-x-hidden bg-primary">
       <Header />
-      <main>
+      <main className="space-y-24pxr">
         <MainSection />
         <AboutMe />
         <Skills />
