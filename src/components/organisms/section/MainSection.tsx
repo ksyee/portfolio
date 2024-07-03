@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import mouseIcon from '@/assets/mouse.png';
-import arrowDownAnimation from '@/assets/arrow-down.png';
 import { UserParticles } from '@/components/molecules';
+
+import 'remixicon/fonts/remixicon.css';
 
 export function MainSection() {
   const name = '강선영';
@@ -15,7 +15,7 @@ export function MainSection() {
   return (
     <section className="relative h-screen w-full">
       <UserParticles />
-      <h1 className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col text-center text-36pxr font-bold text-primary">
+      <section className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col text-center text-36pxr font-bold text-primary">
         <motion.div
           initial={{ x: 100 }}
           whileInView={{ x: 0 }}
@@ -56,19 +56,14 @@ export function MainSection() {
         >
           portfolio
         </motion.span>
-      </h1>
+      </section>
       <button
         onClick={handleScroll}
-        className="absolute bottom-100pxr left-1/2 -translate-x-1/2"
-        aria-label="스크롤 버튼"
+        className="absolute bottom-100pxr left-1/2 flex -translate-x-1/2 flex-col"
+        aria-label="아래 스크롤 버튼"
       >
-        <img src={mouseIcon} alt="마우스 아이콘" loading="lazy" />
-        <img
-          src={arrowDownAnimation}
-          alt="화살표 아이콘 - 아래"
-          className="absolute left-[calc(50%-12px)] mt-8pxr w-24pxr animate-bounce"
-          loading="lazy"
-        />
+        <i className="ri-mouse-line text-40pxr text-white"></i>
+        <i className="ri-arrow-down-s-line absolute left-[calc(50%-17px)] top-44pxr animate-bounce text-34pxr text-white"></i>
       </button>
     </section>
   );

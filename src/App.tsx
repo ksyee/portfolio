@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import supabase from '@/utils/supabase';
+import throttle from 'lodash/throttle';
 
+import { ButtonToTop } from '@/components/atoms';
 import {
   MainSection,
   AboutMe,
@@ -11,9 +13,11 @@ import {
 } from '@/components/organisms/section';
 
 import { useProjectsStore } from '@/stores/projectsStore';
+import { useScrollStore } from '@/stores/scrollStore';
 
 export default function App() {
   const { loadProjects } = useProjectsStore();
+  const { scrollY, setScrollY } = useScrollStore();
 
   useEffect(() => {
     (async () => {
@@ -35,6 +39,19 @@ export default function App() {
     })();
   }, []);
 
+  useEffect(() => {
+    const handleScroll = throttle(() => {
+      const currentScrollY = window.scrollY;
+      setScrollY(currentScrollY);
+    }, 200);
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrollY]);
+
   return (
     <div className="space-y-24pxr overflow-x-hidden bg-primary">
       <Header />
@@ -45,6 +62,7 @@ export default function App() {
         <Projects />
       </main>
       <Footer />
+      <ButtonToTop />
     </div>
   );
 }

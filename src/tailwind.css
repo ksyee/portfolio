@@ -58,3 +58,8 @@
 .center {
   @apply flex items-center justify-center;
 }
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}

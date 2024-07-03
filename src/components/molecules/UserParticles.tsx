@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import type { Container, Engine } from 'tsparticles-engine';
+import type { Engine } from 'tsparticles-engine';
 import Particles from 'react-tsparticles';
 import { loadSlim } from 'tsparticles-slim';
 import { html5, react, js } from '@/assets/particles/index';
@@ -9,19 +9,19 @@ export function UserParticles() {
     await loadSlim(engine);
   }, []);
 
-  const particlesLoaded = useCallback(
-    async (container: Container | undefined) => {
-      console.log(container);
-    },
-    []
-  );
+  // const particlesLoaded = useCallback(
+  //   async (container: Container | undefined) => {
+  //     console.log(container);
+  //   },
+  //   []
+  // );
 
   return (
     <Particles
       id="tsparticles"
       className="z-0 h-screen w-full"
       init={particlesInit}
-      loaded={particlesLoaded}
+      // loaded={particlesLoaded}
       options={{
         fullScreen: {
           enable: false,

@@ -1,4 +1,4 @@
- export type Json =
+export type Json =
   | string
   | number
   | boolean
@@ -22,40 +22,59 @@ export type Database = {
           project_id?: number | null
           stack_name?: string | null
         }
-        Relationships: [
-          {
-            foreignKeyName: "another_stacks_project_id_fkey"
-            columns: ["project_id"]
-            isOneToOne: false
-            referencedRelation: "projects"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       projects: {
         Row: {
-          description: string | null
+          code: string | null
+          contribute: Json[] | null
+          contribution: number | null
+          features: string[] | null
           github_link: string | null
           id: number
-          live_link: string | null
+          intro: string[] | null
+          keywords: string[] | null
+          member: string | null
+          period: Json | null
+          stack: string[] | null
           thumbnail: string | null
           title: string | null
+          trouble: Json[] | null
+          web_link: string | null
         }
         Insert: {
-          description?: string | null
+          code?: string | null
+          contribute?: Json[] | null
+          contribution?: number | null
+          features?: string[] | null
           github_link?: string | null
           id?: number
-          live_link?: string | null
+          intro?: string[] | null
+          keywords?: string[] | null
+          member?: string | null
+          period?: Json | null
+          stack?: string[] | null
           thumbnail?: string | null
           title?: string | null
+          trouble?: Json[] | null
+          web_link?: string | null
         }
         Update: {
-          description?: string | null
+          code?: string | null
+          contribute?: Json[] | null
+          contribution?: number | null
+          features?: string[] | null
           github_link?: string | null
           id?: number
-          live_link?: string | null
+          intro?: string[] | null
+          keywords?: string[] | null
+          member?: string | null
+          period?: Json | null
+          stack?: string[] | null
           thumbnail?: string | null
           title?: string | null
+          trouble?: Json[] | null
+          web_link?: string | null
         }
         Relationships: []
       }
