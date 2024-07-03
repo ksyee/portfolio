@@ -1,11 +1,18 @@
 import { motion } from 'framer-motion';
 import { SectionTitle } from '@/components/molecules';
 
+import { useModalStore } from '@/stores/modalStore';
 import { useProjectsStore } from '@/stores/projectsStore';
 import { Link, Outlet } from 'react-router-dom';
+import { Badge, Keywords } from '@/components/atoms';
 
 export function Projects() {
   const { projects } = useProjectsStore();
+  const { open } = useModalStore();
+
+  const handleClickDetail = () => {
+    open();
+  };
 
   if (!projects.length) {
     return (
@@ -41,18 +48,24 @@ export function Projects() {
                 <img
                   src={project.thumbnail ?? undefined}
                   alt={project.title ?? undefined}
-                  className="mx-auto h-full object-cover transition duration-700 group-hover:scale-105 group-hover:opacity-25"
+                  className="mx-auto h-full object-cover transition duration-700 group-hover:scale-105 group-hover:opacity-15"
                 />
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 space-y-8pxr text-center opacity-0 transition duration-700 group-hover:opacity-100 md:space-y-16pxr">
-                  <h3 className="text-16pxr font-semibold sm:text-24pxr">
+                <div className="absolute left-1/2 top-[10%] flex -translate-x-1/2 flex-col gap-8pxr text-center opacity-0 transition duration-700 group-hover:opacity-100 sm:top-[15%] md:top-[20%] md:gap-16pxr">
+                  <h3 className="text-nowrap text-16pxr font-semibold sm:text-20pxr lg:text-24pxr">
                     {project.title}
                   </h3>
                   <Link
-                    to={`/${project.id}`}
-                    className="rounded-md border px-16pxr py-8pxr text-14pxr font-bold sm:text-20pxr"
+                    onClick={handleClickDetail}
+                    to={`/${project.code}`}
+                    className="group/link rounded-md border px-16pxr py-8pxr transition hover:bg-white "
                   >
-                    자세히 보기
+                    <span className="text-14pxr font-bold transition group-hover/link:text-black sm:text-20pxr">
+                      자세히 보기
+                    </span>
                   </Link>
+                  <div className="absolute -bottom-44pxr left-1/2 mx-auto flex -translate-x-1/2 gap-6pxr">
+                    <Keywords keywords={project.keywords} />
+                  </div>
                 </div>
               </article>
             </li>

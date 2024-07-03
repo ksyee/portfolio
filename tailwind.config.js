@@ -30,6 +30,7 @@ export default {
       backgroundColor: {
         primary: '#101820',
         secondary: '#0fba74',
+        findit: '#4785FF',
       },
       textColor: {
         primary: '#0fba74',

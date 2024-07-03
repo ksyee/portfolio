@@ -1,13 +1,13 @@
-import { SectionTitle, Skill } from '@/components/molecules';
-import supabase from '@/utils/supabase';
 import { useEffect, useState } from 'react';
-import { Database } from '@/types/supabase';
 import { motion } from 'framer-motion';
 
-type Skill = Database['public']['Tables']['skills']['Row'];
+import { SectionTitle, Skill } from '@/components/molecules';
+
+import supabase from '@/utils/supabase';
+import type { Skills } from '@/types/skills';
 
 export function Skills() {
-  const [skills, setSkills] = useState<Skill[] | null>([]);
+  const [skills, setSkills] = useState<Skills[]>([]);
   const [animationComplete, setAnimationComplete] = useState(false);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export function Skills() {
 
       if (error) {
         console.error(error);
-        setSkills(null);
+        setSkills([]);
         return;
       }
 

@@ -1,1 +1,11 @@
-export { ButtonCloseModal } from '@/components/atoms/ButtonCloseModal';
+export { Pill } from '@/components/atoms/Pill';
+export { Period } from './projectDetail/Period';
+export { Badge } from '@/components/atoms/Badge';
+export { ProblemIcon } from '@/components/atoms/ProblemIcon';
+export { SolutionIcon } from '@/components/atoms/SolutionIcon';
+export { ButtonLink } from '@/components/atoms/buttons/ButtonLink';
+export { ButtonToTop } from '@/components/atoms/buttons/ButtonToTop';
+export { DetailListTitle } from '@/components/atoms/DetailListTitle';
+export { Keywords } from '@/components/atoms/projectDetail/Keywords';
+export { Thumbnail } from '@/components/atoms/projectDetail/Thumbnail';
+export { ButtonCloseModal } from '@/components/atoms/buttons/ButtonCloseModal';
