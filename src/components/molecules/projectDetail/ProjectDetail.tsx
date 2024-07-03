@@ -14,16 +14,11 @@ import { ProjectModalLayout } from '@/components/molecules';
 
 import { useProjectsStore } from '@/stores/projectsStore';
 import { parseContent } from '@/utils/parseContent';
-import { Database } from '@/types/supabase';
-
-type Project = Database['public']['Tables']['projects']['Row'];
 
 export function ProjectDetail() {
   const { projects } = useProjectsStore();
   const { code } = useParams<{ code: string }>();
   const projectDetail = projects.find((item) => item.code === code);
-
-  console.log('projectDetail:', projectDetail);
 
   if (!projectDetail) {
     return (
@@ -45,10 +40,7 @@ export function ProjectDetail() {
           {projectDetail.title}
         </h2>
         <div className="mt-6pxr flex justify-center gap-16pxr text-14pxr">
-          <Period
-            start={projectDetail.period.start}
-            end={projectDetail.period.end}
-          />
+          <Period period={projectDetail.period} />
           <p>{projectDetail.member}</p>
         </div>
         <div className="mt-6pxr flex items-center justify-center gap-16pxr">
@@ -69,7 +61,7 @@ export function ProjectDetail() {
         </div>
         <figure className="mx-auto mt-30pxr flex aspect-[2/1] w-[95%] items-center justify-center overflow-hidden rounded-2xl border bg-white before:absolute before:left-1/2 before:top-0 before:-z-20 before:block before:h-[70%] before:w-screen before:-translate-x-1/2 before:bg-findit md:w-[60%]">
           <img
-            src={projectDetail.thumbnail}
+            src={projectDetail.thumbnail ?? undefined}
             alt={`${projectDetail.title} 썸네일`}
             className="h-[95%] rounded-lg border"
           />
@@ -81,7 +73,7 @@ export function ProjectDetail() {
       <section className="flex flex-col gap-40pxr p-[5%] text-black">
         <h2 className="sr-only">프로젝트 상세 정보</h2>
         <div className="space-y-4pxr text-center after:mt-32pxr after:block after:h-1pxr after:w-full after:bg-gray-400">
-          {projectDetail.intro.map((content, index) => (
+          {projectDetail?.intro?.map((content, index) => (
             <p key={index}>{content}</p>
           ))}
         </div>

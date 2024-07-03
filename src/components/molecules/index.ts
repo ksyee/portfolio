@@ -3,5 +3,5 @@ export { Avatar } from '@/components/molecules/Avatar'
 export { PeerReview } from '@/components/molecules/PeerReview';
 export { SectionTitle } from '@/components/molecules/SectionTitle'
 export { UserParticles } from '@/components/molecules/UserParticles';
-export { ProjectDetail } from '@/components/molecules/ProjectDetail';
-export {ProjectModalLayout} from '@/components/molecules/ProjectModalLayout';
+export { ProjectDetail } from '@/components/molecules/projectDetail/ProjectDetail';
+export {ProjectModalLayout} from '@/components/molecules/projectDetail/ProjectModalLayout';

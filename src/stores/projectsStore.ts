@@ -1,7 +1,5 @@
 import { create } from 'zustand';
-import { Database } from '@/types/supabase';
-
-type Project = Database['public']['Tables']['projects']['Row'];
+import type { Project } from '@/types/project';
 
 interface ProjectState {
   projects: Project[];

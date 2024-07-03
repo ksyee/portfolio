@@ -4,7 +4,7 @@ import { SectionTitle } from '@/components/molecules';
 import { useModalStore } from '@/stores/modalStore';
 import { useProjectsStore } from '@/stores/projectsStore';
 import { Link, Outlet } from 'react-router-dom';
-import { Badge } from '@/components/atoms';
+import { Badge, Keywords } from '@/components/atoms';
 
 export function Projects() {
   const { projects } = useProjectsStore();
@@ -64,9 +64,7 @@ export function Projects() {
                     </span>
                   </Link>
                   <div className="absolute -bottom-44pxr left-1/2 mx-auto flex -translate-x-1/2 gap-6pxr">
-                    <Badge>팀</Badge>
-                    <Badge>공공데이터 API</Badge>
-                    <Badge>어쩌구저쩌구</Badge>
+                    <Keywords keywords={project.keywords} />
                   </div>
                 </div>
               </article>

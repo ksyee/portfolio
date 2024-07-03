@@ -34,20 +34,20 @@ export function ProjectModalLayout({ children }: ProjectModalLayoutProps) {
     }
 
     if (location.pathname === `/${code}`) {
-      const githubLink = projects.find((project) => project.code === code)
-        ?.github_link as string;
+      const link = projects.find((project) => project.code === code);
 
-      const webLink = projects.find((project) => project.code === code)
-        ?.web_link as string;
+      if (!link) return undefined;
+
+      const { github_link, web_link } = link;
 
       return (
         <div className="absolute right-0 top-0 flex h-56pxr w-screen items-center justify-between border-b bg-white px-8pxr md:right-80pxr md:top-40pxr md:w-0 md:flex-col md:gap-24pxr md:border-0 md:bg-transparent">
           <ButtonCloseModal />
           <div className="order-first flex gap-10pxr md:order-last md:flex-col">
-            <ButtonLink href={githubLink} title="Github">
+            <ButtonLink href={github_link} title="Github">
               <i className="ri-github-fill"></i>
             </ButtonLink>
-            <ButtonLink href={webLink} title="배포 링크">
+            <ButtonLink href={web_link} title="배포 링크">
               <i className="ri-link"></i>
             </ButtonLink>
           </div>
