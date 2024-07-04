@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -19,6 +20,22 @@ export function ProjectDetail() {
   const { projects } = useProjectsStore();
   const { code } = useParams<{ code: string }>();
   const projectDetail = projects.find((item) => item.code === code);
+
+  useEffect(() => {
+    const style = document.createElement('style');
+
+    style.innerHTML = `
+      .before-bg::before {
+        background-color: ${projectDetail?.color ?? '#313131'};
+      }
+    `;
+
+    document.head.appendChild(style);
+
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
 
   if (!projectDetail) {
     return (
@@ -59,7 +76,7 @@ export function ProjectDetail() {
             </div>
           </div>
         </div>
-        <figure className="mx-auto mt-30pxr flex aspect-[2/1] w-[95%] items-center justify-center overflow-hidden rounded-2xl border bg-white before:absolute before:left-1/2 before:top-0 before:-z-20 before:block before:h-[70%] before:w-screen before:-translate-x-1/2 before:bg-findit md:w-[60%]">
+        <figure className="before-bg mx-auto mt-30pxr flex aspect-[2/1] w-[95%] items-center justify-center overflow-hidden rounded-2xl border bg-white before:absolute before:left-1/2 before:top-0 before:-z-20 before:block before:h-[70%] before:w-screen before:-translate-x-1/2 md:w-[60%]">
           <img
             src={projectDetail.thumbnail ?? undefined}
             alt={`${projectDetail.title} 썸네일`}
@@ -81,13 +98,11 @@ export function ProjectDetail() {
           <h3 className="text-24pxr font-bold">
             <i className="ri-terminal-box-line"></i> 주요 기능 및 특징
           </h3>
-          <div className="mt-20pxr flex flex-col gap-8pxr">
-            <ul className="ml-16pxr list-disc">
-              {projectDetail.features.map((feature, index) => (
-                <li key={index}>{feature}</li>
-              ))}
-            </ul>
-          </div>
+          <ul className="ml-16pxr mt-20pxr flex list-disc flex-col gap-6pxr">
+            {projectDetail.features.map((feature, index) => (
+              <li key={index}>{feature}</li>
+            ))}
+          </ul>
         </section>
         <section>
           <h3 className="text-24pxr font-bold">
@@ -133,24 +148,37 @@ export function ProjectDetail() {
             ))}
           </ul>
         </section>
+        {projectDetail.trouble && (
+          <section>
+            <h3 className="text-24pxr font-bold">
+              <i className="ri-alert-line"></i> 트러블 슈팅
+            </h3>
+            <ul className="mt-20pxr flex flex-col gap-4pxr">
+              {projectDetail.trouble.map((item, index) => (
+                <li key={index}>
+                  <DetailListTitle>{item.title}</DetailListTitle>
+                  <dl className="space-y-8pxr px-8pxr py-16pxr">
+                    <dt>
+                      <ProblemIcon />{' '}
+                      {parseContent(item.contents.problem, Pill)}
+                    </dt>
+                    <dd>
+                      <SolutionIcon />{' '}
+                      {parseContent(item.contents.solution, Pill)}
+                    </dd>
+                  </dl>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
         <section>
           <h3 className="text-24pxr font-bold">
-            <i className="ri-alert-line"></i> 트러블 슈팅
+            <i className="ri-lightbulb-line"></i> 회고
           </h3>
-          <ul className="mt-20pxr flex flex-col gap-4pxr">
-            {projectDetail.trouble.map((item, index) => (
-              <li key={index}>
-                <DetailListTitle>{item.title}</DetailListTitle>
-                <dl className="space-y-8pxr px-8pxr py-16pxr">
-                  <dt>
-                    <ProblemIcon /> {parseContent(item.contents.problem, Pill)}
-                  </dt>
-                  <dd>
-                    <SolutionIcon />{' '}
-                    {parseContent(item.contents.solution, Pill)}
-                  </dd>
-                </dl>
-              </li>
+          <ul className="ml-16pxr mt-20pxr flex list-disc flex-col gap-6pxr">
+            {projectDetail.retrospect.map((retrospect, index) => (
+              <li key={index}>{retrospect}</li>
             ))}
           </ul>
         </section>

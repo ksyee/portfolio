@@ -4,7 +4,7 @@ import { SectionTitle } from '@/components/molecules';
 import { useModalStore } from '@/stores/modalStore';
 import { useProjectsStore } from '@/stores/projectsStore';
 import { Link, Outlet } from 'react-router-dom';
-import { Badge, Keywords } from '@/components/atoms';
+import { Keywords } from '@/components/atoms';
 
 export function Projects() {
   const { projects } = useProjectsStore();
@@ -42,9 +42,9 @@ export function Projects() {
           return (
             <li
               key={project.id}
-              className="aspect-h-10 aspect-w-16 relative w-full overflow-hidden rounded-lg"
+              className="group aspect-h-10 aspect-w-16 relative w-full overflow-hidden rounded-lg hover:outline hover:outline-white"
             >
-              <article className="group">
+              <article className="">
                 <img
                   src={project.thumbnail ?? undefined}
                   alt={project.title ?? undefined}

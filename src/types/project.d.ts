@@ -33,6 +33,7 @@ export interface Trouble {
 export interface Project {
   id: number;
   code: string;
+  color: string;
   title: string;
   link: Link;
   keywords: string[];
@@ -47,4 +48,5 @@ export interface Project {
   stack: string[];
   contribute: Contribution[];
   trouble: Trouble[];
+  retrospect: string[];
 }

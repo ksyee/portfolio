@@ -34,11 +34,14 @@ export function ProjectModalLayout({ children }: ProjectModalLayoutProps) {
     }
 
     if (location.pathname === `/${code}`) {
-      const link = projects.find((project) => project.code === code);
+      const project = projects.find((project) => project.code === code);
 
-      if (!link) return undefined;
+      if (!project) return undefined;
 
-      const { github_link, web_link } = link;
+      const { link } = project;
+
+      const github_link = link.github;
+      const web_link = link.web;
 
       return (
         <div className="absolute right-0 top-0 flex h-56pxr w-screen items-center justify-between border-b bg-white px-8pxr md:right-80pxr md:top-40pxr md:w-0 md:flex-col md:gap-24pxr md:border-0 md:bg-transparent">

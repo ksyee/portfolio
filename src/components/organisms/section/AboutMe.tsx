@@ -29,7 +29,9 @@ export function AboutMe() {
         >
           <p className="mb-4pxr text-24pxr font-semibold lg:text-32pxr">
             <span className="block">방문해주셔서 감사합니다.</span>
-            <span className="inline">배움을 즐기는 개발자, </span>
+            <span className="inline">
+              지식을 공유하며 함께 성장하는 것을 즐기는 개발자,{' '}
+            </span>
             <span className="font-bold text-primary">강선영</span>입니다.
           </p>
           <p>
