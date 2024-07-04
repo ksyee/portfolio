@@ -48,6 +48,7 @@ export default {
     },
     boxShadow: {
       primary: '0px 0px 8px 4px rgba(15, 186, 116, 0.2)',
+      secondary: '0px 0px 6px 4px rgba(15, 186, 116, 0.3)',
     },
     scrollBehavior: ['smooth', 'auto'],
   },
