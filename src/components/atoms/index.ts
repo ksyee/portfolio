@@ -1,8 +1,9 @@
 export { Pill } from '@/components/atoms/Pill';
-export { Period } from './projectDetail/Period';
 export { Badge } from '@/components/atoms/Badge';
 export { ProblemIcon } from '@/components/atoms/ProblemIcon';
 export { SolutionIcon } from '@/components/atoms/SolutionIcon';
+export { SectionTitle } from '@/components/atoms/SectionTitle';
+export { Period } from '@/components/atoms/projectDetail/Period';
 export { ButtonLink } from '@/components/atoms/buttons/ButtonLink';
 export { ButtonToTop } from '@/components/atoms/buttons/ButtonToTop';
 export { DetailListTitle } from '@/components/atoms/DetailListTitle';

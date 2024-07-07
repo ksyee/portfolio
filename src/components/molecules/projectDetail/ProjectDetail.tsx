@@ -182,6 +182,16 @@ export function ProjectDetail() {
             ))}
           </ul>
         </section>
+        <section>
+          <h3 className="text-24pxr font-bold">
+            <i className="ri-lightbulb-line"></i> 회고
+          </h3>
+          <ul className="ml-16pxr mt-20pxr flex list-disc flex-col gap-6pxr">
+            {projectDetail.retrospect.map((retrospect, index) => (
+              <li key={index}>{retrospect}</li>
+            ))}
+          </ul>
+        </section>
       </section>
     </ProjectModalLayout>
   );

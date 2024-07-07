@@ -7,7 +7,7 @@ interface SectionTitleProps {
 export function SectionTitle({ title }: SectionTitleProps) {
   return (
     <motion.h2
-      initial={{ x: -100 }}
+      initial={{ x: -150 }}
       whileInView={{ x: 0 }}
       transition={{ duration: 0.7, type: 'spring' }}
       className="font-bebas text-72pxr text-primary"

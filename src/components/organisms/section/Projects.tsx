@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
-import { SectionTitle } from '@/components/molecules';
+import { Link, Outlet } from 'react-router-dom';
+
+import { SectionTitle, Keywords } from '@/components/atoms';
 
 import { useModalStore } from '@/stores/modalStore';
 import { useProjectsStore } from '@/stores/projectsStore';
-import { Link, Outlet } from 'react-router-dom';
-import { Keywords } from '@/components/atoms';
 
 export function Projects() {
   const { projects } = useProjectsStore();
@@ -33,7 +33,7 @@ export function Projects() {
     >
       <SectionTitle title="projects" />
       <motion.ul
-        initial={{ x: 100 }}
+        initial={{ x: 150 }}
         whileInView={{ x: 0 }}
         transition={{ duration: 0.7, type: 'spring' }}
         className="grid gap-16pxr md:grid-cols-2"
@@ -42,7 +42,7 @@ export function Projects() {
           return (
             <li
               key={project.id}
-              className="hover:shadow-secondary group aspect-h-10 aspect-w-16 relative w-full overflow-hidden rounded-lg transition duration-500"
+              className="group aspect-h-10 aspect-w-16 relative w-full overflow-hidden rounded-lg transition duration-500 hover:shadow-secondary"
             >
               <article className="m-4pxr">
                 <img

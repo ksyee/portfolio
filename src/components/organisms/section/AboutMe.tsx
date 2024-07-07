@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { SectionTitle, Avatar } from '@/components/molecules';
+
+import { SectionTitle } from '@/components/atoms';
+import { Avatar } from '@/components/molecules';
 
 import { useModalStore } from '@/stores/modalStore';
 
@@ -18,7 +20,7 @@ export function AboutMe() {
     >
       <SectionTitle title="about me" />
       <motion.div
-        initial={{ x: 100 }}
+        initial={{ x: 150 }}
         whileInView={{ x: 0 }}
         transition={{ duration: 0.7, type: 'spring' }}
         className="lg:pxr-32pxr mx-auto mt-16pxr flex flex-col-reverse items-center justify-between gap-32pxr md:flex-row md:items-center md:gap-60pxr md:px-44pxr"

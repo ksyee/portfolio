@@ -17,7 +17,7 @@ export function MainSection() {
       <UserParticles />
       <section className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col text-center text-36pxr font-bold text-primary">
         <motion.div
-          initial={{ x: 100 }}
+          initial={{ x: 150 }}
           whileInView={{ x: 0 }}
           transition={{ duration: 0.6, type: 'spring' }}
           className="tablet:text-150pxr whitespace-nowrap text-92pxr leading-none"
