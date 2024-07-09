@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
-import { SectionTitle, Skill } from '@/components/molecules';
+import { SectionTitle } from '@/components/atoms';
+import { Skill } from '@/components/molecules';
 
 import supabase from '@/utils/supabase';
 import type { Skills } from '@/types/skills';
@@ -34,7 +35,7 @@ export function Skills() {
     >
       <SectionTitle title={'skills'} />
       <motion.ul
-        initial={{ x: 100 }}
+        initial={{ x: 150 }}
         whileInView={{ x: 0 }}
         transition={{ type: 'spring', duration: 0.7 }}
         onAnimationComplete={() => setAnimationComplete(true)}

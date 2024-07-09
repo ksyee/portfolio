@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { SectionTitle, Avatar } from '@/components/molecules';
+
+import { SectionTitle } from '@/components/atoms';
+import { Avatar } from '@/components/molecules';
 
 import { useModalStore } from '@/stores/modalStore';
 
@@ -18,7 +20,7 @@ export function AboutMe() {
     >
       <SectionTitle title="about me" />
       <motion.div
-        initial={{ x: 100 }}
+        initial={{ x: 150 }}
         whileInView={{ x: 0 }}
         transition={{ duration: 0.7, type: 'spring' }}
         className="lg:pxr-32pxr mx-auto mt-16pxr flex flex-col-reverse items-center justify-between gap-32pxr md:flex-row md:items-center md:gap-60pxr md:px-44pxr"
@@ -39,7 +41,7 @@ export function AboutMe() {
             활용하여 사용자 경험 향상을 위해 힘쓰고 있습니다.
           </p>
           <p>
-            사용자가 쉽고 재미있게 이용할 수 있는 서비스를 만드는 것에 열정이
+            포트폴리오의 접근성 및 성능은 lighthouse 점수 95점 이상 유지하고
             있습니다.
           </p>
           <Link
