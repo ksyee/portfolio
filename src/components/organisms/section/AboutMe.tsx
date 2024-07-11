@@ -41,7 +41,7 @@ export function AboutMe() {
             활용하여 사용자 경험 향상을 위해 힘쓰고 있습니다.
           </p>
           <p>
-            포트폴리오의 접근성 및 성능은 lighthouse 점수 95점 이상 유지하고
+            포트폴리오의 접근성 및 성능을 lighthouse 점수 95점 이상 유지하고
             있습니다.
           </p>
           <Link
