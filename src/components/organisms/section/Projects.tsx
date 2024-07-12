@@ -57,6 +57,7 @@ export function Projects() {
                   <Link
                     onClick={handleClickDetail}
                     to={`/${project.code}`}
+                    aria-label={`${project.title} 프로젝트 자세히 보기`}
                     className="group/link rounded-md border px-16pxr py-8pxr transition hover:bg-white"
                   >
                     <span className="text-14pxr font-bold transition group-hover/link:text-black sm:text-20pxr">

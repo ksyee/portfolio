@@ -47,6 +47,7 @@ export function AboutMe() {
           <Link
             onClick={handleClick}
             to="/peer_review"
+            aria-label="동료 평가 보기 버튼"
             className="group/link mx-auto mt-28pxr flex h-44pxr w-160pxr items-center justify-around rounded border px-8pxr transition hover:bg-white hover:text-black"
           >
             <span className="mt-2pxr text-16pxr font-semibold leading-none">
