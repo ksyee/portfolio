@@ -19,7 +19,7 @@ export function Avatar() {
             <span>#협업의_즐거움</span>
           </li>
           <li>
-            <span>#키보드</span>
+            <span>#커스텀 키보드</span>
           </li>
         </ul>
       </div>
