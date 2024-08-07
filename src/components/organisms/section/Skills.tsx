@@ -5,7 +5,7 @@ import { SectionTitle } from '@/components/atoms';
 import { Skill } from '@/components/molecules';
 
 import supabase from '@/utils/supabase';
-import type { Skills } from '@/types/skills';
+import type { Skills } from '@/@types/skills';
 
 export function Skills() {
   const [skills, setSkills] = useState<Skills[]>([]);

@@ -1,6 +1,6 @@
 import { Badge } from '@/components/atoms';
 
-import type { Project } from '@/types/project';
+import type { Project } from '@/@types/project';
 
 interface KeywordsProps {
   keywords: Project['keywords'];

@@ -1,4 +1,4 @@
-import type { Period } from '@/types/project';
+import type { Period } from '@/@types/project';
 
 export function Period({ period }: { period: Period }) {
   const start = period.start;
