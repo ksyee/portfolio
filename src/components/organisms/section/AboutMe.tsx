@@ -29,20 +29,22 @@ export function AboutMe() {
           className="flex flex-col gap-8pxr text-center text-16pxr lg:text-22pxr"
           aria-label="강선영의 자기소개글"
         >
-          <p className="mb-4pxr text-24pxr font-semibold lg:text-32pxr">
-            <span className="block">방문해주셔서 감사합니다.</span>
-            <span className="inline">
-              지식을 공유하며 함께 성장하는 것을 즐기는 개발자,{' '}
+          <p className="mb-4pxr text-20pxr font-semibold lg:text-24pxr">
+            <span className="mb-8pxr block text-24pxr lg:text-28pxr">
+              방문해주셔서 감사합니다.
             </span>
-            <span className="font-bold text-primary">강선영</span>입니다.
+            <span className="inline">
+              아침에 걸어뒀던 모자가 저녁에는 손도 닿지 않을 만큼 자라는
+              죽순처럼, 볼 때마다 성장하고 있는 개발자,{' '}
+            </span>
+            <span className="font-bold text-primary">강선영</span>
+            입니다.
           </p>
           <p>
-            사용자 친화적인 서비스를 위해 접근성을 준수하고, 다양한 라이브러리를
-            활용하여 사용자 경험 향상을 위해 힘쓰고 있습니다.
-          </p>
-          <p>
-            포트폴리오의 접근성 및 성능을 lighthouse 점수 95점 이상 유지하고
-            있습니다.
+            저는 혼자보다는 함께 하는 것을 좋아하며, 지식을 공유하면서 서로의
+            성장을 돕는 개발 문화를 지향합니다. 서로의 부족한 부분을 채워주는
+            이러한 문화가 개발자를 더욱 성숙하게 성장시킬 수 있는 기반이 된다고
+            믿습니다.
           </p>
           <Link
             onClick={handleClick}
