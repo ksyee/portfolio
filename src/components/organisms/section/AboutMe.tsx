@@ -29,8 +29,8 @@ export function AboutMe() {
           className="flex flex-col gap-8pxr text-center text-16pxr lg:text-22pxr"
           aria-label="강선영의 자기소개글"
         >
-          <p className="mb-4pxr text-20pxr font-semibold lg:text-24pxr">
-            <span className="mb-8pxr block text-24pxr lg:text-28pxr">
+          <p className="mb-4pxr text-24pxr font-semibold lg:text-30pxr">
+            <span className="mb-8pxr block text-32pxr lg:text-40pxr">
               방문해주셔서 감사합니다.
             </span>
             <span className="inline">
