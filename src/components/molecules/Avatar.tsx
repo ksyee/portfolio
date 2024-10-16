@@ -13,13 +13,13 @@ export function Avatar() {
             <span>#역지사지</span>
           </li>
           <li>
-            <span>#배움은_끝이없다</span>
+            <span>#협업의_가치</span>
           </li>
           <li>
-            <span>#협업의_즐거움</span>
+            <span>#도전의_즐거움</span>
           </li>
           <li>
-            <span>#커스텀 키보드</span>
+            <span>#커스텀_키보드</span>
           </li>
         </ul>
       </div>
