@@ -1,4 +1,4 @@
-import Picture from '@/assets/image.png';
+import Picture from '@/assets/image.jpg';
 
 export function Avatar() {
   return (
