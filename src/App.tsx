@@ -17,7 +17,7 @@ import { useScrollStore } from '@/stores/scrollStore';
 
 export default function App() {
   const { loadProjects } = useProjectsStore();
-  const { scrollY, setScrollY } = useScrollStore();
+  const { setScrollY } = useScrollStore();
 
   useEffect(() => {
     (async () => {
