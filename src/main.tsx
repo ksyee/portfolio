@@ -4,16 +4,16 @@ import App from '@/App.tsx';
 import '@/tailwind.css';
 import { PeerReview, ProjectDetail } from './components/molecules';
 
-const router = createBrowserRouter([
+import type { Router as RemixRouter } from '@remix-run/router';
+
+const router: RemixRouter = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     children: [
       {
         path: '/peer_review',
-        element: (
-          <PeerReview src="https://flveojkndlljinzpzpkl.supabase.co/storage/v1/object/sign/portfolio/peer_review.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwb3J0Zm9saW8vcGVlcl9yZXZpZXcucG5nIiwiaWF0IjoxNzE5ODg3MjkxLCJleHAiOjE3NTE0MjMyOTF9.UY1r3QqL7xUFijPJC-jabpUs3kzClJy9fF-RkSxFZBQ&t=2024-07-02T02%3A28%3A10.936Z" />
-        ),
+        element: <PeerReview src="/src/assets/peer-feedback.png" />,
       },
       {
         path: '/:code',

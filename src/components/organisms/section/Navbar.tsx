@@ -37,7 +37,9 @@ export function Navbar() {
       <ul className="flex gap-20pxr text-18pxr font-semibold">
         <li className="px-20pxr">
           <h1 className="text-40pxr font-black text-primary">
-            <a href="#">ksyee</a>
+            <a href="/" aria-label="Homepage">
+              ksyee
+            </a>
           </h1>
         </li>
         <li className="center">

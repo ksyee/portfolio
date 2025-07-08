@@ -36,8 +36,11 @@ export default function App() {
         console.error(error);
         loadProjects([]);
       }
-    })();
-  }, []);
+    })().catch((err) => {
+      // eslint-disable-next-line no-console
+      console.error(err);
+    });
+  }, [loadProjects]);
 
   useEffect(() => {
     const handleScroll = throttle(() => {
@@ -50,7 +53,7 @@ export default function App() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [scrollY]);
+  }, [setScrollY]);
 
   return (
     <div className="space-y-24pxr overflow-x-hidden bg-primary">

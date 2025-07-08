@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 
-interface SectionTitleProps {
+interface ISectionTitleProps {
   title: string;
 }
 
-export function SectionTitle({ title }: SectionTitleProps) {
+export function SectionTitle({ title }: ISectionTitleProps) {
   return (
     <motion.h2
       initial={{ x: -150 }}

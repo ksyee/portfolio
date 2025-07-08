@@ -1,8 +1,11 @@
 export const parseContent = (
   contents: string[],
-  Component: React.ElementType
+  component: React.ElementType
 ) => {
   if (!contents) return null;
+
+  // Alias to ensure the JSX element name is capitalized
+  const Component = component;
 
   const regex = /(\*\*.*?\*\*)/g; // **text** 형태의 문자열을 찾는 정규식
 

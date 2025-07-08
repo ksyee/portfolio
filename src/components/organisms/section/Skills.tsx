@@ -25,7 +25,9 @@ export function Skills() {
       }
 
       setSkills(data);
-    })();
+    })().catch((err) => {
+      console.error('Failed to fetch skills:', err);
+    });
   }, []);
 
   return (
