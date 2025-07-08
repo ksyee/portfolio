@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from '@/App.tsx';
 import '@/tailwind.css';
 import { PeerReview, ProjectDetail } from './components/molecules';
+import peerFeedbackImg from '@/assets/peer-feedback.png';
 
 import type { Router as RemixRouter } from '@remix-run/router';
 
@@ -13,7 +14,7 @@ const router: RemixRouter = createBrowserRouter([
     children: [
       {
         path: '/peer_review',
-        element: <PeerReview src="/src/assets/peer-feedback.png" />,
+        element: <PeerReview src={peerFeedbackImg} />,
       },
       {
         path: '/:code',
