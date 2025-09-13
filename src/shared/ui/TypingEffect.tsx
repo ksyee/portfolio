@@ -17,24 +17,32 @@ export function TypingEffect({
   const [isTyping, setIsTyping] = useState(false);
 
   useEffect(() => {
-    const startTyping = setTimeout(() => {
+    let startTimeout: number;
+    let typeInterval: number;
+    let i = 0;
+
+    const startTyping = () => {
       setIsTyping(true);
-      let i = 0;
-      
-      const typeWriter = () => {
+
+      typeInterval = window.setInterval(() => {
         if (i < text.length) {
           setDisplayText(text.slice(0, i + 1));
           i++;
-          setTimeout(typeWriter, speed);
         } else {
           setIsTyping(false);
+          clearInterval(typeInterval);
         }
-      };
-      
-      typeWriter();
-    }, delay);
+      }, speed);
+    };
 
-    return () => clearTimeout(startTyping);
+    startTimeout = window.setTimeout(startTyping, delay);
+
+    return () => {
+      clearTimeout(startTimeout);
+      if (typeInterval) {
+        clearInterval(typeInterval);
+      }
+    };
   }, [text, delay, speed]);
 
   return (

@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { Link, Outlet } from 'react-router-dom';
+import { useRef } from 'react';
 
-import { SectionTitle, InteractiveCard } from '@/shared/ui';
+import { SectionTitle } from '@/shared/ui';
 import { Keywords } from '@/features/project-detail/ui/Keywords';
 
 import { useModal, useProjects } from '@/app/providers';
@@ -12,6 +13,24 @@ export function Projects() {
 
   const handleClickDetail = (code: string) => {
     openModal(code);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * 5;
+    const rotateY = ((x - centerX) / centerX) * 5;
+
+    e.currentTarget.style.transform = `perspective(1000px) translateY(-10px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+  };
+
+  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.currentTarget.style.transform = '';
   };
 
   if (!projects.length) {
@@ -32,47 +51,69 @@ export function Projects() {
       id="projects"
     >
       <SectionTitle title="projects" />
-      <motion.ul
-        initial={{ x: 150 }}
-        whileInView={{ x: 0 }}
-        transition={{ duration: 0.7, type: 'spring' }}
-        className="grid gap-16pxr md:grid-cols-2"
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        className="grid gap-40pxr grid-cols-1 md:grid-cols-2 xl:grid-cols-3"
       >
         {projects.map((project) => {
           return (
-            <InteractiveCard key={project.id} intensity={15}>
-              <li className="group aspect-h-10 aspect-w-16 relative w-full overflow-hidden rounded-lg transition duration-500 hover:shadow-secondary hover:shadow-cyan-400/30"
-              >
-              <article className="m-4pxr">
+            <div
+              key={project.id}
+              className="group relative overflow-hidden rounded-20pxr border border-white/10 bg-slate-800/50 backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:border-violet-500 hover:shadow-xl hover:shadow-violet-500/20"
+              style={{
+                transformStyle: 'preserve-3d',
+                perspective: '1000px',
+                willChange: 'transform',
+              }}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="relative h-[200px] overflow-hidden">
                 <img
                   src={project.thumbnail ?? undefined}
                   alt={project.title ?? undefined}
-                  className="mx-auto h-full scale-105 object-cover transition duration-500 group-hover:scale-110 group-hover:opacity-15"
+                  className="h-full w-full object-cover"
                 />
-                <div className="absolute left-1/2 top-[10%] flex -translate-x-1/2 flex-col gap-8pxr text-center opacity-0 transition duration-500 group-hover:opacity-100 sm:top-[15%] md:top-[20%] md:gap-16pxr">
-                  <h3 className="text-nowrap text-16pxr font-semibold sm:text-20pxr lg:text-24pxr">
-                    {project.title}
-                  </h3>
+                <div className="absolute inset-0 bg-black/20 transition-all duration-300 group-hover:bg-black/40" />
+              </div>
+
+              <div className="p-30pxr">
+                <h3 className="mb-15pxr text-24pxr font-bold text-white transition-colors duration-300 group-hover:text-cyan-400">
+                  {project.title}
+                </h3>
+
+                <p className="mb-20pxr leading-relaxed text-slate-300">
+                  {project.description || '프로젝트 설명이 준비 중입니다.'}
+                </p>
+
+                <div className="mb-20pxr flex flex-wrap gap-8pxr">
+                  <Keywords keywords={project.keywords} />
+                </div>
+
+                <div className="flex gap-15pxr">
                   <Link
                     onClick={() => handleClickDetail(project.code)}
                     to={`/${project.code}`}
                     aria-label={`${project.title} 프로젝트 자세히 보기`}
-                    className="group/link rounded-md border px-16pxr py-8pxr transition hover:bg-white"
+                    className="inline-flex items-center rounded-8pxr bg-gradient-to-r from-cyan-400 to-violet-500 px-20pxr py-10pxr text-14pxr font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/25"
                   >
-                    <span className="text-14pxr font-bold transition group-hover/link:text-black sm:text-20pxr">
-                      자세히 보기
-                    </span>
+                    Demo
                   </Link>
-                  <div className="absolute -bottom-44pxr left-1/2 mx-auto flex -translate-x-1/2 gap-6pxr">
-                    <Keywords keywords={project.keywords} />
-                  </div>
+
+                  <a
+                    href="#"
+                    className="inline-flex items-center rounded-8pxr border border-cyan-400 px-20pxr py-10pxr text-14pxr font-medium text-cyan-400 transition-all duration-300 hover:scale-105 hover:bg-cyan-400/10"
+                  >
+                    GitHub
+                  </a>
                 </div>
-              </article>
-              </li>
-            </InteractiveCard>
+              </div>
+            </div>
           );
         })}
-      </motion.ul>
+      </motion.div>
       <Outlet />
     </section>
   );

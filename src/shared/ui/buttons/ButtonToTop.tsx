@@ -1,36 +1,27 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import throttle from 'lodash/throttle';
-
-import { useScroll } from '@/app/providers';
+import { scrollManager } from '@/shared/utils/scrollManager';
 
 import 'remixicon/fonts/remixicon.css';
 
 export function ButtonToTop() {
-  const [activeScrollTopButton, setActiveScrollTopButton] =
-    useState<boolean>(false);
-
-  const { scrollY } = useScroll();
+  const [activeScrollTopButton, setActiveScrollTopButton] = useState<boolean>(false);
 
   const handleScrollToTop = () => {
-    window.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   useEffect(() => {
-    const handleScroll = throttle(() => {
-      if (scrollY > 200) {
-        setActiveScrollTopButton(true);
-      } else {
-        setActiveScrollTopButton(false);
-      }
-    }, 200);
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
+    const handleScroll = (scrollY: number) => {
+      setActiveScrollTopButton(scrollY > 200);
     };
-  }, [scrollY]);
+
+    // Initial call
+    handleScroll(scrollManager.getScrollY());
+
+    const unsubscribe = scrollManager.subscribe(handleScroll);
+    return unsubscribe;
+  }, []);
 
   return (
     <motion.button

@@ -5,13 +5,27 @@
 @tailwind utilities;
 
 /* Global styles for interactive portfolio */
+* {
+  cursor: none !important;
+}
+
 body {
   cursor: none !important;
   scroll-behavior: smooth;
-  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%);
+  background: linear-gradient(135deg, #0f0f23 0%, #1e1b4b 50%, #0f0f23 100%);
   color: #fff;
   overflow-x: hidden;
   position: relative;
+}
+
+/* Hide cursor for all interactive elements */
+a, button, input, textarea, select, [role="button"], [tabindex] {
+  cursor: none !important;
+}
+
+/* Hide cursor for hover states */
+*:hover {
+  cursor: none !important;
 }
 
 /* Hide default scrollbar */

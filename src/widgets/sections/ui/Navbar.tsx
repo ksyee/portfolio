@@ -1,32 +1,31 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import throttle from 'lodash/throttle';
-
-import { useScroll } from '@/app/providers';
+import { scrollManager } from '@/shared/utils/scrollManager';
 
 export function Navbar() {
-  const { scrollY } = useScroll();
-  const [navView, setNavVite] = useState<boolean>(true);
+  const [navView, setNavView] = useState<boolean>(true);
+  const lastScrollY = useRef<number>(0);
 
   useEffect(() => {
-    const handleScroll = throttle(() => {
-      const currentScrollY = window.scrollY;
+    const handleScroll = (currentScrollY: number) => {
+      const diff = currentScrollY - lastScrollY.current;
 
-      // 네이게이션바가 보이는지 여부
-      if (scrollY - currentScrollY > 10) {
-        setNavVite(true);
+      // 네비게이션바가 보이는지 여부
+      if (diff > 10) {
+        setNavView(false);
+      } else if (diff < -10) {
+        setNavView(true);
       }
-      if (scrollY - currentScrollY < -10) {
-        setNavVite(false);
-      }
-    }, 200);
 
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
+      lastScrollY.current = currentScrollY;
     };
-  }, [scrollY]);
+
+    // Initial call
+    lastScrollY.current = scrollManager.getScrollY();
+
+    const unsubscribe = scrollManager.subscribe(handleScroll);
+    return unsubscribe;
+  }, []);
 
   return (
     <motion.nav

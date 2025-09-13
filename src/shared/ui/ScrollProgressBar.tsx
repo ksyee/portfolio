@@ -1,23 +1,21 @@
 import { useEffect, useState } from 'react';
+import { scrollManager } from '@/shared/utils/scrollManager';
 
 export function ScrollProgressBar() {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    const updateScrollProgress = () => {
-      const scrollTop = window.pageYOffset;
+    const updateScrollProgress = (scrollY: number) => {
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
-      
-      setScrollProgress(scrollPercent);
+      const scrollPercent = (scrollY / docHeight) * 100;
+      setScrollProgress(Math.min(100, Math.max(0, scrollPercent)));
     };
 
-    window.addEventListener('scroll', updateScrollProgress);
-    updateScrollProgress(); // Initial call
+    // Initial call
+    updateScrollProgress(scrollManager.getScrollY());
 
-    return () => {
-      window.removeEventListener('scroll', updateScrollProgress);
-    };
+    const unsubscribe = scrollManager.subscribe(updateScrollProgress);
+    return unsubscribe;
   }, []);
 
   return (

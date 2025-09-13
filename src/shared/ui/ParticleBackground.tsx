@@ -23,7 +23,7 @@ export function ParticleBackground() {
     canvas.height = window.innerHeight;
 
     const particles: Particle[] = [];
-    const particleCount = 100;
+    const particleCount = 30;
 
     // Initialize particles
     for (let i = 0; i < particleCount; i++) {
@@ -57,22 +57,33 @@ export function ParticleBackground() {
         ctx.fill();
       });
 
-      // Draw connections
-      particles.forEach((p1, i) => {
-        particles.slice(i + 1).forEach((p2) => {
-          const distance = Math.sqrt(
-            Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2)
-          );
+      // Draw connections with optimized distance calculation
+      const maxDistance = 120; // Reduced connection distance
+      for (let i = 0; i < particles.length; i++) {
+        const p1 = particles[i];
 
-          if (distance < 150) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+
+          // Quick distance check using squared distance (avoid sqrt)
+          const dx = p1.x - p2.x;
+          const dy = p1.y - p2.y;
+          const distanceSquared = dx * dx + dy * dy;
+          const maxDistanceSquared = maxDistance * maxDistance;
+
+          if (distanceSquared < maxDistanceSquared) {
+            const distance = Math.sqrt(distanceSquared);
+            const opacity = 0.1 * (1 - distance / maxDistance);
+
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(147, 51, 234, ${0.15 * (1 - distance / 150)})`;
+            ctx.strokeStyle = `rgba(147, 51, 234, ${opacity})`;
+            ctx.lineWidth = 0.5;
             ctx.stroke();
           }
-        });
-      });
+        }
+      }
 
       requestAnimationFrame(animate);
     }

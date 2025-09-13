@@ -49,7 +49,7 @@ export default function HomePage() {
       <CustomCursor />
       <ScrollProgressBar />
       <ParticleBackground />
-      <ParticleSystem />
+      {/* <ParticleSystem /> - Disabled to reduce performance overhead */}
       
       {/* Main Content */}
       <div className="space-y-24pxr overflow-x-hidden cursor-none" style={{ background: 'transparent' }}>
