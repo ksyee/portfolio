@@ -28,12 +28,18 @@ export default {
         ...pxToRemFunc(1, 1000),
       },
       backgroundColor: {
-        primary: '#101820',
-        secondary: '#0fba74',
+        primary: '#1e1b4b',
+        secondary: '#6366f1',
+        accent: '#a855f7',
         findit: '#4785FF',
       },
       textColor: {
-        primary: '#0fba74',
+        primary: '#6366f1',
+        secondary: '#a855f7',
+      },
+      backgroundImage: {
+        'gradient-primary': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        'gradient-button': 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)',
       },
       screens: {
         sm: '360px',
