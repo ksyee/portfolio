@@ -75,11 +75,11 @@ select,
 }
 
 .bounce {
+  display: inline-block;
   transition: all 0.3s ease-out;
 }
 
 .bounce:hover {
-  display: block;
   animation: pudding 0.8s ease-out;
   filter: brightness(1.2);
 }
