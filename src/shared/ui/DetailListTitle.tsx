@@ -1,0 +1,11 @@
+interface DetailListTitleProps {
+  children: React.ReactNode;
+}
+
+export function DetailListTitle({ children }: DetailListTitleProps) {
+  return (
+    <h4 className="bg-gray-100 px-[8px] py-[6px] text-[16px] font-semibold">
+      {children}
+    </h4>
+  );
+}

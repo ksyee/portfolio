@@ -1,39 +1,23 @@
-import range from 'lodash/range';
 import aspectRatio from '@tailwindcss/aspect-ratio';
-
-const pxToRem = (px, base = 16) => `${px / base}rem`;
-
-const pxToRemFunc = (start, end) => {
-  return range(start, end).reduce((acc, px) => {
-    acc[`${px}pxr`] = pxToRem(px);
-    return acc;
-  }, {});
-};
 
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      spacing: {
-        ...pxToRemFunc(1, 1000),
-      },
-      inset: {
-        ...pxToRemFunc(1, 1000),
-      },
-      fontSize: {
-        ...pxToRemFunc(1, 1000),
-      },
-      lineHeight: {
-        ...pxToRemFunc(1, 1000),
-      },
       backgroundColor: {
-        primary: '#101820',
-        secondary: '#0fba74',
+        primary: '#1e1b4b',
+        secondary: '#6366f1',
+        accent: '#a855f7',
         findit: '#4785FF',
       },
       textColor: {
-        primary: '#0fba74',
+        primary: '#6366f1',
+        secondary: '#a855f7',
+      },
+      backgroundImage: {
+        'gradient-primary': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        'gradient-button': 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)',
       },
       screens: {
         sm: '360px',
