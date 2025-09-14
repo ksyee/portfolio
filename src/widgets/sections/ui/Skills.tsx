@@ -28,7 +28,7 @@ export function Skills() {
 
   return (
     <section
-      className="relative mx-auto w-full max-w-[1500px] cursor-default px-32pxr py-16pxr text-white"
+      className="relative mx-auto w-full max-w-[1500px] cursor-default px-[32px] py-[16px] text-white"
       id="skills"
     >
       <SectionTitle title={'skills'} />
@@ -37,7 +37,7 @@ export function Skills() {
         whileInView={{ x: 0 }}
         transition={{ type: 'spring', duration: 0.7 }}
         onAnimationComplete={() => setAnimationComplete(true)}
-        className="mt-20pxr flex flex-wrap justify-center gap-32pxr"
+        className="mt-[20px] flex flex-wrap justify-center gap-[32px]"
       >
         {skills?.map((skill) => (
           <SkillComponent

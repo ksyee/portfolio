@@ -7,7 +7,7 @@ interface PeerReviewProps {
 export function PeerReview({ src }: PeerReviewProps) {
   return (
     <ProjectModalLayout>
-      <div className="bg-white md:px-[10%] md:py-8pxr lg:px-[20%]">
+      <div className="bg-white md:px-[10%] md:py-[8px] lg:px-[20%]">
         <h2 className="sr-only">동료 평가</h2>
         <img
           src={src}

@@ -8,7 +8,7 @@ interface KeywordsProps {
 
 export function Keywords({ keywords }: KeywordsProps) {
   return (
-    <div className="flex gap-6pxr">
+    <div className="flex gap-[6px]">
       {keywords?.map((keyword) => <Badge key={keyword}>{keyword}</Badge>)}
     </div>
   );

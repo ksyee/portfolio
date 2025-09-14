@@ -5,7 +5,6 @@ import {
   ButtonToTop,
   CustomCursor,
   LoadingScreen,
-  ParticleSystem,
   ScrollProgressBar,
   ParticleBackground
 } from '@/shared/ui';
@@ -14,6 +13,7 @@ import {
   AboutMe,
   Skills,
   Projects,
+  Contact,
   Footer,
   Header,
 } from '@/widgets/sections';
@@ -52,13 +52,14 @@ export default function HomePage() {
       {/* <ParticleSystem /> - Disabled to reduce performance overhead */}
       
       {/* Main Content */}
-      <div className="space-y-24pxr overflow-x-hidden cursor-none" style={{ background: 'transparent' }}>
+      <div className="space-y-[24px] overflow-x-hidden cursor-none" style={{ background: 'transparent' }}>
         <Header />
-        <main className="space-y-24pxr">
+        <main className="space-y-[24px]">
           <MainSection />
           <AboutMe />
           <Skills />
           <Projects />
+          <Contact />
         </main>
         <Footer />
         <ButtonToTop />

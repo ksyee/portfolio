@@ -6,7 +6,7 @@ interface BadgeProps {
 
 export function Badge({ children }: BadgeProps) {
   return (
-    <span className="text-nowrap rounded bg-secondary px-6pxr py-2pxr text-12pxr text-white">
+    <span className="text-nowrap rounded bg-secondary px-[6px] py-[2px] text-[12px] text-white">
       {children}
     </span>
   );

@@ -4,7 +4,7 @@ interface DetailListTitleProps {
 
 export function DetailListTitle({ children }: DetailListTitleProps) {
   return (
-    <h4 className="bg-gray-100 px-8pxr py-6pxr text-16pxr font-semibold">
+    <h4 className="bg-gray-100 px-[8px] py-[6px] text-[16px] font-semibold">
       {children}
     </h4>
   );

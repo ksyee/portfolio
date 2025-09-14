@@ -29,10 +29,10 @@ export function ButtonCloseModal() {
         transition: { duration: 0.1 },
       }}
       whileTap={{ scale: 1, transition: { duration: 0.05 } }}
-      className="bg-gray- flex h-40pxr w-40pxr shrink-0 items-center justify-center rounded-full bg-black md:border md:border-white"
+      className="bg-gray- flex h-[40px] w-[40px] shrink-0 items-center justify-center rounded-full bg-black md:border md:border-white"
       onClick={handleClick}
     >
-      <i className="ri-close-line text-30pxr leading-none text-white"></i>
+      <i className="ri-close-line text-[30px] leading-none text-white"></i>
     </motion.button>
   );
 }

@@ -1,32 +1,10 @@
-import range from 'lodash/range';
 import aspectRatio from '@tailwindcss/aspect-ratio';
-
-const pxToRem = (px, base = 16) => `${px / base}rem`;
-
-const pxToRemFunc = (start, end) => {
-  return range(start, end).reduce((acc, px) => {
-    acc[`${px}pxr`] = pxToRem(px);
-    return acc;
-  }, {});
-};
 
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      spacing: {
-        ...pxToRemFunc(1, 1000),
-      },
-      inset: {
-        ...pxToRemFunc(1, 1000),
-      },
-      fontSize: {
-        ...pxToRemFunc(1, 1000),
-      },
-      lineHeight: {
-        ...pxToRemFunc(1, 1000),
-      },
       backgroundColor: {
         primary: '#1e1b4b',
         secondary: '#6366f1',

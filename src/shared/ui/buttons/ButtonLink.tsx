@@ -8,7 +8,7 @@ interface ButtonLinkProps {
 
 export function ButtonLink({ children, href, title }: ButtonLinkProps) {
   return (
-    <div className="flex flex-col items-center justify-center gap-2pxr">
+    <div className="flex flex-col items-center justify-center gap-[2px]">
       <motion.a
         initial={{ scale: 1 }}
         whileHover={{
@@ -20,12 +20,12 @@ export function ButtonLink({ children, href, title }: ButtonLinkProps) {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex h-40pxr w-40pxr items-center justify-center rounded-full border border-black bg-white text-30pxr text-black md:border-none"
+        className="flex h-[40px] w-[40px] items-center justify-center rounded-full border border-black bg-white text-[30px] text-black md:border-none"
         aria-label={title}
       >
         {children}
       </motion.a>
-      <span className="hidden text-nowrap text-12pxr md:block">{title}</span>
+      <span className="hidden text-nowrap text-[12px] md:block">{title}</span>
     </div>
   );
 }

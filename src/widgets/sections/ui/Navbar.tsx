@@ -31,11 +31,11 @@ export function Navbar() {
     <motion.nav
       initial={{ y: 0 }}
       animate={{ y: navView ? 0 : -100, transition: { duration: 0.4 } }}
-      className="fixed z-10 w-screen bg-black bg-opacity-75 py-8pxr text-white"
+      className="fixed z-10 w-screen bg-black bg-opacity-75 py-[8px] text-white"
     >
-      <ul className="flex gap-20pxr text-18pxr font-semibold">
-        <li className="px-20pxr">
-          <h1 className="text-40pxr font-black text-primary">
+      <ul className="flex gap-[20px] text-[18px] font-semibold">
+        <li className="px-[20px]">
+          <h1 className="text-[40px] font-black text-primary">
             <a href="/" aria-label="Homepage">
               ksyee
             </a>

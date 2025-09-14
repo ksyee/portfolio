@@ -1,4 +1,5 @@
 export { AboutMe } from './ui/AboutMe';
+export { Contact } from './ui/Contact';
 export { Footer } from './ui/Footer';
 export { Header } from './ui/Header';
 export { MainSection } from './ui/MainSection';

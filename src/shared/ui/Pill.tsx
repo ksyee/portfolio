@@ -4,7 +4,7 @@ interface PillProps {
 
 export function Pill({ children }: PillProps) {
   return (
-    <span className="rounded-md bg-gray-200 px-6pxr py-2pxr text-15pxr">
+    <span className="rounded-md bg-gray-200 px-[6px] py-[2px] text-[15px]">
       {children}
     </span>
   );

@@ -21,7 +21,9 @@ interface ProjectsProviderProps {
   children: React.ReactNode;
 }
 
-export const ProjectsProvider: React.FC<ProjectsProviderProps> = ({ children }) => {
+export const ProjectsProvider: React.FC<ProjectsProviderProps> = ({
+  children,
+}) => {
   const { projects, loadProjects } = useProjectsStore();
   const [isLoading, setIsLoading] = React.useState(true);
 
@@ -39,7 +41,9 @@ export const ProjectsProvider: React.FC<ProjectsProviderProps> = ({ children }) 
     };
 
     if (projects.length === 0) {
-      fetchProjects();
+      fetchProjects().catch((error) =>
+        console.error('Error fetching projects:', error)
+      );
     } else {
       setIsLoading(false);
     }
@@ -47,7 +51,7 @@ export const ProjectsProvider: React.FC<ProjectsProviderProps> = ({ children }) 
 
   const value: ProjectsContextType = {
     projects,
-    isLoading
+    isLoading,
   };
 
   return (

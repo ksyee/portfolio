@@ -1,5 +1,5 @@
 // 기본 타입 정의
-type DateTuple = [string, string, string];
+type DateTuple = [string, string, string] | string[];
 type URL = string;
 
 // 공통 타입 정의
@@ -35,6 +35,7 @@ export interface Project {
   code: string;
   color: string;
   title: string;
+  description?: string;
   link: Link;
   keywords: string[];
   period: Period;
@@ -47,6 +48,6 @@ export interface Project {
   features: string[];
   stack: string[];
   contribute: Contribution[];
-  trouble: Trouble[];
+  trouble: Trouble[] | null;
   retrospect: string[];
 }
