@@ -1,4 +1,3 @@
-import Picture from '@/shared/assets/image.jpg';
 import { motion } from 'framer-motion';
 
 export function Avatar() {
@@ -9,7 +8,7 @@ export function Avatar() {
         animate={{ y: [0, 14, 14, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <img src={Picture} alt="강선영 사진" />
+        <img src="/images/profile.jpg" alt="강선영 사진" />
         <figcaption className="sr-only">강선영의 프로필 사진</figcaption>
       </motion.figure>
       <div className="text-[14px]">
