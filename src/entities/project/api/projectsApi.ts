@@ -7,7 +7,7 @@ const projectsData: Project[] = projectData.map(
     ({
       ...project,
       id: index + 1, // 순차적인 숫자 ID
-      thumbnail: `/src/shared/assets/project_thumbnails/${project.code}.png`, // 로컬 이미지 경로
+      thumbnail: `/images/project_thumbnails/${project.code}.png`, // public 폴더 이미지 경로
       github_link: project.link?.github || '', // JSON 데이터에서 가져오기
       web_link: project.link?.web || '', // JSON 데이터에서 가져오기
       link: project.link || { github: '', web: '' }, // JSON 데이터 유지
