@@ -45,7 +45,7 @@ export function MainSection() {
             text={name}
             delay={3000}
             speed={150}
-            className="bounce cursor-default bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text font-JalnanGothic text-transparent"
+            className="bounce cursor-default bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text font-JalnanGothic leading-tight text-transparent"
           />
         </motion.div>
         <motion.span
