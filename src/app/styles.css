@@ -19,7 +19,13 @@ body {
 }
 
 /* Hide cursor for all interactive elements */
-a, button, input, textarea, select, [role="button"], [tabindex] {
+a,
+button,
+input,
+textarea,
+select,
+[role='button'],
+[tabindex] {
   cursor: none !important;
 }
 
@@ -73,7 +79,7 @@ a, button, input, textarea, select, [role="button"], [tabindex] {
 }
 
 .bounce:hover {
-  display: inline-block;
+  display: block;
   animation: pudding 0.8s ease-out;
   filter: brightness(1.2);
 }

@@ -34,12 +34,12 @@ export function MainSection() {
 
   return (
     <section className="relative h-screen w-full">
-      <section className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col text-center text-[36px] font-bold">
+      <section className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col gap-1 text-center text-[36px] font-bold">
         <motion.div
           initial={{ x: 100 }}
           whileInView={{ x: 0 }}
           transition={{ duration: 0.6, type: 'spring' }}
-          className="tablet:text-[150px] whitespace-nowrap text-[92px] leading-none"
+          className="tablet:text-[150px] whitespace-nowrap text-[92px] leading-tight"
         >
           <TypingEffect
             text={name}
@@ -49,7 +49,7 @@ export function MainSection() {
           />
         </motion.div>
         <motion.span
-          className="relative mt-1.5 font-bebas text-[32px] leading-none text-gray-300"
+          className="relative font-bebas text-[32px] leading-none text-gray-300"
           initial={{ x: -100 }}
           whileInView={{ x: 0 }}
           transition={{ duration: 0.6, type: 'spring' }}
