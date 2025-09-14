@@ -7,17 +7,16 @@ interface TypingEffectProps {
   className?: string;
 }
 
-export function TypingEffect({ 
-  text, 
-  delay = 0, 
-  speed = 150, 
-  className = '' 
+export function TypingEffect({
+  text,
+  delay = 0,
+  speed = 150,
+  className = '',
 }: TypingEffectProps) {
   const [displayText, setDisplayText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
 
   useEffect(() => {
-    let startTimeout: number;
     let typeInterval: number;
     let i = 0;
 
@@ -35,7 +34,7 @@ export function TypingEffect({
       }, speed);
     };
 
-    startTimeout = window.setTimeout(startTyping, delay);
+    const startTimeout: number = window.setTimeout(startTyping, delay);
 
     return () => {
       clearTimeout(startTimeout);
@@ -48,9 +47,7 @@ export function TypingEffect({
   return (
     <span className={className}>
       {displayText}
-      {isTyping && (
-        <span className="animate-pulse">|</span>
-      )}
+      {isTyping && <span className="animate-pulse">|</span>}
     </span>
   );
 }

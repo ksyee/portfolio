@@ -1,16 +1,6 @@
-import { Link } from 'react-router-dom';
-
 import { SectionTitle, Avatar } from '@/shared/ui';
 
-import { useModal } from '@/app/providers';
-
 export function AboutMe() {
-  const { openModal } = useModal();
-
-  const handleClick = () => {
-    openModal('peer_review');
-  };
-
   return (
     <section
       className="mx-auto w-full max-w-[1500px] cursor-default px-[32px] text-white"
@@ -42,18 +32,24 @@ export function AboutMe() {
             <strong className="text-purple-400">기술적 성장</strong>을 추구하고
             있습니다.
           </p>
-          <Link
-            onClick={handleClick}
-            to="/peer_review"
-            aria-label="동료 평가 보기 버튼"
-            className="group/link mx-auto mt-[28px] flex h-[44px] w-[160px] items-center justify-around rounded border px-[8px] transition hover:bg-white hover:text-black"
-          >
-            <span className="mt-[2px] text-[16px] font-semibold leading-none">
-              동료 평가 보기
-            </span>
-            <i className="ri-arrow-right-s-line text-[24px]"></i>
-          </Link>
+          <div className="text-base">
+            <ul className="flex justify-center gap-8">
+              <li>
+                <span>#역지사지</span>
+              </li>
+              <li>
+                <span>#문제_해결의_본질</span>
+              </li>
+              <li>
+                <span>#도전의_용기</span>
+              </li>
+              <li>
+                <span>#개발의_즐거움</span>
+              </li>
+            </ul>
+          </div>
         </article>
+
         <Avatar />
       </div>
     </section>

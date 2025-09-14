@@ -36,7 +36,7 @@ export function MainSection() {
     <section className="relative h-screen w-full">
       <section className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col text-center text-[36px] font-bold">
         <motion.div
-          initial={{ x: 150 }}
+          initial={{ x: 100 }}
           whileInView={{ x: 0 }}
           transition={{ duration: 0.6, type: 'spring' }}
           className="tablet:text-[150px] whitespace-nowrap text-[92px] leading-none"
@@ -54,7 +54,12 @@ export function MainSection() {
           whileInView={{ x: 0 }}
           transition={{ duration: 0.6, type: 'spring' }}
         >
-          Web Developer
+          <TypingEffect
+            text="Web Developer"
+            delay={4100}
+            speed={100}
+            className="inline-block"
+          />
           <motion.span
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
