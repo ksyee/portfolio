@@ -31,16 +31,14 @@ export function Navbar() {
     <motion.nav
       initial={{ y: 0 }}
       animate={{ y: navView ? 0 : -100, transition: { duration: 0.4 } }}
-      className="fixed z-10 w-screen bg-black bg-opacity-75 py-[8px] text-white"
+      className="fixed z-10 flex w-screen justify-between bg-black bg-opacity-75 p-10 py-[8px] leading-none text-white"
     >
-      <ul className="flex gap-[20px] text-[18px] font-semibold">
-        <li className="px-[20px]">
-          <h1 className="text-[40px] font-black text-primary">
-            <a href="/" aria-label="Homepage">
-              ksyee
-            </a>
-          </h1>
-        </li>
+      <h1 className="text-[40px] font-black text-primary">
+        <a href="/" aria-label="Homepage">
+          ksyee
+        </a>
+      </h1>
+      <ul className="text-4 flex gap-8 font-normal">
         <li className="center">
           <a href="#about-me" className="uppercase">
             About Me
@@ -51,6 +49,9 @@ export function Navbar() {
         </li>
         <li className="center uppercase">
           <a href="#projects">Projects</a>
+        </li>
+        <li className="center uppercase">
+          <a href="#contact">Contact</a>
         </li>
       </ul>
     </motion.nav>

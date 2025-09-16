@@ -25,9 +25,7 @@ export function Contact() {
         className="mx-auto max-w-[800px] text-center"
       >
         <p className="mb-[40px] text-[20px] leading-relaxed text-gray-300">
-          새로운 프로젝트나 협업 기회에 대해 언제든 연락주세요!
-          <br />
-          함께 혁신적인 솔루션을 만들어가길 기대합니다.
+          함께 도전하며 성장하는 개발 문화를 기대합니다.
         </p>
 
         <ul className="mx-auto grid max-w-[600px] list-none grid-cols-1 gap-[30px] md:grid-cols-2">
