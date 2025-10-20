@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-interface LoadingScreenProps {
+interface ILoadingScreenProps {
   onLoadComplete?: () => void;
 }
 
-export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
+export function LoadingScreen({ onLoadComplete }: ILoadingScreenProps) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-interface Particle {
+interface IParticle {
   x: number;
   y: number;
   vx: number;
@@ -22,7 +22,7 @@ export function ParticleBackground() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const particles: Particle[] = [];
+    const particles: IParticle[] = [];
     const particleCount = 30;
 
     // Initialize particles

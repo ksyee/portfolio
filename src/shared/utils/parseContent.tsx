@@ -1,3 +1,5 @@
+import React from 'react'
+
 export const parseContent = (
   contents: string[],
   component: React.ElementType

@@ -1,12 +1,12 @@
-import { ReactNode } from 'react';
+import {ReactNode} from 'react';
 
-interface BadgeProps {
+interface IBadgeProps {
   children: ReactNode;
 }
 
-export function Badge({ children }: BadgeProps) {
+export function Badge({children}: IBadgeProps) {
   return (
-    <span className="text-nowrap rounded bg-secondary px-[6px] py-[2px] text-[12px] text-white">
+      <span className="text-nowrap rounded bg-secondary px-[6px] py-[2px] text-[12px] text-white">
       {children}
     </span>
   );

@@ -1,6 +1,6 @@
-import { useState, useRef, ReactNode } from 'react';
+import React, { useState, useRef, ReactNode } from 'react';
 
-interface InteractiveCardProps {
+interface IInteractiveCardProps {
   children: ReactNode;
   className?: string;
   intensity?: number;
@@ -10,7 +10,7 @@ export function InteractiveCard({
   children, 
   className = '', 
   intensity = 10 
-}: InteractiveCardProps) {
+}: IInteractiveCardProps) {
   const [transform, setTransform] = useState('');
   const cardRef = useRef<HTMLDivElement>(null);
 

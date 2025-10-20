@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-interface TypingEffectProps {
+interface ITypingEffectProps {
   text: string;
   delay?: number;
   speed?: number;
@@ -12,7 +12,7 @@ export function TypingEffect({
   delay = 0,
   speed = 150,
   className = '',
-}: TypingEffectProps) {
+}: ITypingEffectProps) {
   const [displayText, setDisplayText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
 

@@ -5,7 +5,7 @@ class ScrollManager {
   private throttledHandler: (() => void) | null = null;
   private isListening = false;
 
-  private throttle<T extends (...args: any[]) => void>(
+  private throttle<T extends (...args: never[]) => void>(
     func: T,
     delay: number
   ): (...args: Parameters<T>) => void {

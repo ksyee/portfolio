@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { scrollManager } from '@/shared/utils/scrollManager';
+import {useEffect, useState} from 'react';
+import {scrollManager} from '@/shared/utils/scrollManager';
 
 export function ScrollProgressBar() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -14,8 +14,7 @@ export function ScrollProgressBar() {
     // Initial call
     updateScrollProgress(scrollManager.getScrollY());
 
-    const unsubscribe = scrollManager.subscribe(updateScrollProgress);
-    return unsubscribe;
+    return scrollManager.subscribe(updateScrollProgress);
   }, []);
 
   return (
