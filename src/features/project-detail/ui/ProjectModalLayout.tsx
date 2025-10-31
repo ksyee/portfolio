@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { ButtonCloseModal, ButtonLink } from '@/shared/ui';
@@ -11,15 +11,18 @@ interface ProjectModalLayoutProps {
 
 export function ProjectModalLayout({ children }: ProjectModalLayoutProps) {
   const { projects } = useProjects();
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal, openModal, selectedProjectCode } = useModal();
   const location = useLocation();
+  const navigate = useNavigate();
   const { code } = useParams<{ code: string }>();
+  const originalOverflowRef = useRef<string | null>(null);
 
   const handleClickBackground = (e: React.MouseEvent) => {
     const target = e.target as HTMLElement;
 
     if (target.classList.contains('clickedBg')) {
       closeModal();
+      navigate('/');
     }
   };
 
@@ -46,12 +49,16 @@ export function ProjectModalLayout({ children }: ProjectModalLayoutProps) {
         <div className="absolute right-0 top-0 flex h-[56px] w-screen items-center justify-between border-b bg-white px-[8px] md:right-[80px] md:top-[40px] md:w-0 md:flex-col md:gap-[24px] md:border-0 md:bg-transparent">
           <ButtonCloseModal />
           <div className="order-first flex gap-[10px] md:order-last md:flex-col">
-            <ButtonLink href={github_link} title="Github">
-              <i className="ri-github-fill"></i>
-            </ButtonLink>
-            <ButtonLink href={web_link} title="배포 링크">
-              <i className="ri-link"></i>
-            </ButtonLink>
+            {github_link && (
+              <ButtonLink href={github_link} title="Github">
+                <i className="ri-github-fill"></i>
+              </ButtonLink>
+            )}
+            {web_link && (
+              <ButtonLink href={web_link} title="배포 링크">
+                <i className="ri-link"></i>
+              </ButtonLink>
+            )}
           </div>
         </div>
       );
@@ -61,12 +68,28 @@ export function ProjectModalLayout({ children }: ProjectModalLayoutProps) {
   };
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
+    const { body } = document;
+
+    if (originalOverflowRef.current === null) {
+      originalOverflowRef.current = body.style.overflow || '';
     }
+
+    if (isOpen) {
+      body.style.overflow = 'hidden';
+    } else {
+      body.style.overflow = originalOverflowRef.current || '';
+    }
+
+    return () => {
+      body.style.overflow = originalOverflowRef.current || '';
+    };
   }, [isOpen]);
+
+  useEffect(() => {
+    if (code && (selectedProjectCode !== code || !isOpen)) {
+      openModal(code);
+    }
+  }, [code, openModal, selectedProjectCode, isOpen]);
 
   return (
     <AnimatePresence>

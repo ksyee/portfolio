@@ -25,7 +25,7 @@ export function Contact() {
         className="mx-auto max-w-[800px] text-center"
       >
         <p className="mb-[40px] text-[20px] leading-relaxed text-gray-300">
-          함께 도전하며 성장하는 개발 문화를 기대합니다.
+          함께 도전하며 성장하는 개발자로의 여정.
         </p>
 
         <ul className="mx-auto grid max-w-[600px] list-none grid-cols-1 gap-[30px] md:grid-cols-2">

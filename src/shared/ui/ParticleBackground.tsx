@@ -11,6 +11,7 @@ interface IParticle {
 
 export function ParticleBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animationFrameRef = useRef<number>();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -21,6 +22,17 @@ export function ParticleBackground() {
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    );
+
+    if (prefersReducedMotion.matches) {
+      canvas.style.display = 'none';
+      return () => {
+        canvas.style.display = '';
+      };
+    }
 
     const particles: IParticle[] = [];
     const particleCount = 30;
@@ -37,7 +49,7 @@ export function ParticleBackground() {
       });
     }
 
-    function animate() {
+    function drawFrame() {
       if (!ctx || !canvas) return;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -84,11 +96,14 @@ export function ParticleBackground() {
           }
         }
       }
-
-      requestAnimationFrame(animate);
     }
 
-    animate();
+    const render = () => {
+      drawFrame();
+      animationFrameRef.current = requestAnimationFrame(render);
+    };
+
+    render();
 
     const handleResize = () => {
       canvas.width = window.innerWidth;
@@ -99,6 +114,9 @@ export function ParticleBackground() {
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
     };
   }, []);
 

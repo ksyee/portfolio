@@ -1,37 +1,37 @@
 import { useEffect, useState } from 'react';
 
-interface ILoadingScreenProps {
-  onLoadComplete?: () => void;
+interface LoadingScreenProps {
+  isLoading: boolean;
 }
 
-export function LoadingScreen({ onLoadComplete }: ILoadingScreenProps) {
-  const [isLoading, setIsLoading] = useState(true);
+export function LoadingScreen({ isLoading }: LoadingScreenProps) {
+  const [visible, setVisible] = useState(isLoading);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-      setTimeout(() => {
-        onLoadComplete?.();
-      }, 500);
-    }, 2000);
+    if (isLoading) {
+      setVisible(true);
+      return;
+    }
 
-    return () => clearTimeout(timer);
-  }, [onLoadComplete]);
+    const timer = window.setTimeout(() => setVisible(false), 400);
+    return () => window.clearTimeout(timer);
+  }, [isLoading]);
 
-  if (!isLoading) {
-    return (
-      <div className="fixed inset-0 bg-slate-900 flex items-center justify-center z-[10000] transition-opacity duration-500 opacity-0 pointer-events-none" />
-    );
+  if (!visible) {
+    return null;
   }
 
   return (
-    <div className="fixed inset-0 bg-slate-900 flex items-center justify-center z-[10000] transition-opacity duration-500">
+    <div
+      className={`fixed inset-0 z-[10000] flex items-center justify-center bg-slate-900 transition-opacity duration-500 ${
+        isLoading ? 'opacity-100' : 'opacity-0 pointer-events-none'
+      }`}
+      aria-live="polite"
+      role="status"
+    >
       <div className="text-center">
-        {/* Spinner */}
-        <div className="w-20 h-20 border-4 border-cyan-400 border-t-transparent rounded-full animate-spin mb-5 mx-auto" />
-        
-        {/* Loading text */}
-        <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text text-transparent">
+        <div className="mx-auto mb-5 h-20 w-20 animate-spin rounded-full border-4 border-cyan-400 border-t-transparent" />
+        <div className="text-2xl font-bold text-transparent bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text">
           Loading Portfolio...
         </div>
       </div>

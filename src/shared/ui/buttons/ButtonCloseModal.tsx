@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,17 +7,12 @@ import 'remixicon/fonts/remixicon.css';
 
 export function ButtonCloseModal() {
   const navigate = useNavigate();
-  const { closeModal, isOpen } = useModal();
+  const { closeModal } = useModal();
 
   const handleClick = () => {
     closeModal();
+    navigate('/');
   };
-
-  useEffect(() => {
-    if (!isOpen) {
-      navigate('/');
-    }
-  }, [isOpen, navigate]);
 
   return (
     <motion.button

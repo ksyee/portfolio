@@ -101,23 +101,27 @@ export function Projects() {
                     자세히 보기
                   </Link>
 
-                  <a
-                    href={project.link.web || '#'}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-[8px] inline-flex items-center border border-cyan-400 px-[20px] py-[10px] text-[14px] font-medium text-cyan-400 transition-all duration-300 hover:scale-105 hover:bg-cyan-400/10"
-                  >
-                    Demo
-                  </a>
+                  {project.link.web && (
+                    <a
+                      href={project.link.web}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-[8px] inline-flex items-center border border-cyan-400 px-[20px] py-[10px] text-[14px] font-medium text-cyan-400 transition-all duration-300 hover:scale-105 hover:bg-cyan-400/10"
+                    >
+                      Demo
+                    </a>
+                  )}
 
-                  <a
-                    href={project.link.github || '#'}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-[8px] inline-flex items-center border border-cyan-400 px-[20px] py-[10px] text-[14px] font-medium text-cyan-400 transition-all duration-300 hover:scale-105 hover:bg-cyan-400/10"
-                  >
-                    GitHub
-                  </a>
+                  {project.link.github && (
+                    <a
+                      href={project.link.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-[8px] inline-flex items-center border border-cyan-400 px-[20px] py-[10px] text-[14px] font-medium text-cyan-400 transition-all duration-300 hover:scale-105 hover:bg-cyan-400/10"
+                    >
+                      GitHub
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

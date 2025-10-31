@@ -4,34 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global styles for interactive portfolio */
-* {
-  cursor: none !important;
-}
-
 body {
-  cursor: none !important;
   scroll-behavior: smooth;
   background: linear-gradient(135deg, #0f0f23 0%, #1e1b4b 50%, #0f0f23 100%);
   color: #fff;
   overflow-x: hidden;
   position: relative;
-}
-
-/* Hide cursor for all interactive elements */
-a,
-button,
-input,
-textarea,
-select,
-[role='button'],
-[tabindex] {
-  cursor: none !important;
-}
-
-/* Hide cursor for hover states */
-*:hover {
-  cursor: none !important;
 }
 
 /* Hide default scrollbar */
@@ -115,4 +93,25 @@ select,
 .scrollbar-hide {
   scrollbar-width: none;
   -ms-overflow-style: none;
+}
+
+.before-bg::before {
+  background-color: var(--before-bg-color, #313131);
+}
+
+@media (pointer: fine) {
+  body.custom-cursor-active {
+    cursor: none !important;
+  }
+
+  body.custom-cursor-active a,
+  body.custom-cursor-active button,
+  body.custom-cursor-active input,
+  body.custom-cursor-active textarea,
+  body.custom-cursor-active select,
+  body.custom-cursor-active [role='button'],
+  body.custom-cursor-active [tabindex],
+  body.custom-cursor-active *:hover {
+    cursor: none !important;
+  }
 }

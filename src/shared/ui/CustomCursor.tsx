@@ -13,6 +13,16 @@ export function CustomCursor() {
 
     if (!mainCursor || !follower) return;
 
+    const pointerMediaQuery = window.matchMedia('(pointer: fine)');
+
+    if (!pointerMediaQuery.matches) {
+      mainCursor.style.display = 'none';
+      follower.style.display = 'none';
+      return;
+    }
+
+    document.body.classList.add('custom-cursor-active');
+
     // Direct DOM manipulation for maximum performance
     const updateCursor = (e: MouseEvent) => {
       mousePos.current.x = e.clientX;
@@ -69,6 +79,7 @@ export function CustomCursor() {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
+      document.body.classList.remove('custom-cursor-active');
     };
   }, []);
 
@@ -82,6 +93,7 @@ export function CustomCursor() {
           top: 0,
           left: 0,
         }}
+        aria-hidden="true"
       />
 
       {/* Cursor follower - smooth delayed following */}
@@ -92,6 +104,7 @@ export function CustomCursor() {
           top: 0,
           left: 0,
         }}
+        aria-hidden="true"
       />
     </>
   );

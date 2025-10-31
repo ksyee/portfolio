@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import type { CSSProperties } from 'react';
 
 import {
   DetailListTitle,
@@ -21,22 +21,6 @@ export function ProjectDetail() {
   const { code } = useParams<{ code: string }>();
   const projectDetail = projects.find((item) => item.code === code);
 
-  useEffect(() => {
-    const style = document.createElement('style');
-
-    style.innerHTML = `
-      .before-bg::before {
-        background-color: ${projectDetail?.color ?? '#313131'};
-      }
-    `;
-
-    document.head.appendChild(style);
-
-    return () => {
-      document.head.removeChild(style);
-    };
-  }, []);
-
   if (!projectDetail) {
     return (
       <ProjectModalLayout>
@@ -46,6 +30,11 @@ export function ProjectDetail() {
       </ProjectModalLayout>
     );
   }
+
+  type BeforeBgStyle = CSSProperties & { '--before-bg-color'?: string };
+  const accentStyle: BeforeBgStyle = {
+    '--before-bg-color': projectDetail.color ?? '#313131',
+  };
 
   return (
     <ProjectModalLayout>
@@ -76,7 +65,10 @@ export function ProjectDetail() {
             </div>
           </div>
         </div>
-        <figure className="before-bg mx-auto mt-[30px] flex aspect-[2/1] w-[95%] items-center justify-center overflow-hidden rounded-2xl border bg-white before:absolute before:left-1/2 before:top-0 before:-z-20 before:block before:h-[70%] before:w-screen before:-translate-x-1/2 md:w-[60%]">
+        <figure
+          className="before-bg mx-auto mt-[30px] flex aspect-[2/1] w-[95%] items-center justify-center overflow-hidden rounded-2xl border bg-white before:absolute before:left-1/2 before:top-0 before:-z-20 before:block before:h-[70%] before:w-screen before:-translate-x-1/2 md:w-[60%]"
+          style={accentStyle}
+        >
           <img
             src={projectDetail.thumbnail ?? undefined}
             alt={`${projectDetail.title} 썸네일`}

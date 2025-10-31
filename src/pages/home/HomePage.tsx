@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import throttle from 'lodash/throttle';
 
 import {
@@ -18,11 +18,11 @@ import {
   Header,
 } from '@/widgets/sections';
 
-import { useScroll } from '@/app/providers';
+import { useProjects, useScroll } from '@/app/providers';
 
 export default function HomePage() {
   const { setScrollY } = useScroll();
-  const [isLoadingComplete, setIsLoadingComplete] = useState(false);
+  const { isLoading: isProjectsLoading } = useProjects();
 
 
   useEffect(() => {
@@ -41,9 +41,7 @@ export default function HomePage() {
   return (
     <>
       {/* Loading Screen */}
-      {!isLoadingComplete && (
-        <LoadingScreen onLoadComplete={() => setIsLoadingComplete(true)} />
-      )}
+      <LoadingScreen isLoading={isProjectsLoading} />
       
       {/* Interactive Elements */}
       <CustomCursor />
@@ -52,7 +50,7 @@ export default function HomePage() {
       {/* <ParticleSystem /> - Disabled to reduce performance overhead */}
       
       {/* Main Content */}
-      <div className="space-y-[24px] overflow-x-hidden cursor-none" style={{ background: 'transparent' }}>
+      <div className="space-y-[24px] overflow-x-hidden" style={{ background: 'transparent' }}>
         <Header />
         <main className="space-y-[24px]">
           <MainSection />
