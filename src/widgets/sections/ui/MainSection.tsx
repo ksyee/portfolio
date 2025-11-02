@@ -43,7 +43,7 @@ export function MainSection() {
         >
           <TypingEffect
             text={name}
-            delay={3000}
+            delay={1200}
             speed={150}
             className="bounce cursor-default bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text font-JalnanGothic leading-tight text-transparent"
           />
@@ -56,7 +56,7 @@ export function MainSection() {
         >
           <TypingEffect
             text="Web Developer"
-            delay={4100}
+            delay={2100}
             speed={100}
             className="inline-block"
           />
@@ -74,9 +74,9 @@ export function MainSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.6 }}
         >
-          창의적인 아이디어와 최신 기술을 결합하여 혁신적인 웹 솔루션을
-          만들어갑니다. 사용자 경험을 중시하며, 효율적이고 확장 가능한 코드를
-          작성합니다.
+          사용자 여정을 데이터로 해석하고 감각적인 인터랙션으로 답을 제시합니다.
+          실험과 리팩터링을 반복하며 팀이 신뢰하는 확장형 프론트엔드를
+          만들어가는 개발자입니다.
         </motion.p>
         <div className="mt-10 flex justify-center gap-5">
           <motion.button
