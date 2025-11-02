@@ -74,9 +74,9 @@ export function MainSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.6 }}
         >
-          사용자 여정을 데이터로 해석하고 감각적인 인터랙션으로 답을 제시합니다.
-          실험과 리팩터링을 반복하며 팀이 신뢰하는 확장형 프론트엔드를
-          만들어가는 개발자입니다.
+          작은 개선에도 사용자와 함께 웃는 결과를 만드는 일에 진심입니다. 매일
+          새로운 시도를 즐기며, 끊임없이 성장하고 싶은 열정으로 서비스를
+          만들어갑니다.
         </motion.p>
         <div className="mt-10 flex justify-center gap-5">
           <motion.button
