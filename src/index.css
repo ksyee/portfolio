@@ -1907,3 +1907,42 @@ html {
   inherits: false;
   initial-value: solid;
 }
+
+@layer utilities {
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 80px 80px;
+    background-position: 0 0, 0 0;
+  }
+
+  @keyframes grid-move {
+    from {
+      background-position: 0 0, 0 0;
+    }
+    to {
+      background-position: -80px -80px, -80px -80px;
+    }
+  }
+
+  .animate-grid-move {
+    animation: grid-move 20s linear infinite;
+  }
+
+  @keyframes float-dot {
+    0% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-10px) scale(1.2);
+    }
+    100% {
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .animate-float-dot {
+    animation: float-dot 4.5s ease-in-out infinite;
+  }
+}

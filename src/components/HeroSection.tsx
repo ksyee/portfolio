@@ -1,7 +1,7 @@
-import { motion, useMotionValue, useTransform, animate } from 'motion/react';
-import { ChevronDown } from 'lucide-react';
-import { FloatingShapes } from './FloatingShapes';
-import { useEffect, useState } from 'react';
+import { motion, useMotionValue, useTransform, animate } from "motion/react";
+import { ChevronDown } from "lucide-react";
+import { FloatingShapes } from "./FloatingShapes";
+import { useEffect, useState } from "react";
 
 interface HeroSectionProps {
   onScrollToAbout: () => void;
@@ -10,8 +10,8 @@ interface HeroSectionProps {
 export function HeroSection({ onScrollToAbout }: HeroSectionProps) {
   const count = useMotionValue(0);
   const rounded = useTransform(count, (latest) => Math.round(latest));
-  const [typedText, setTypedText] = useState('');
-  const fullName = '강선영';
+  const [typedText, setTypedText] = useState("");
+  const fullName = "강선영";
 
   useEffect(() => {
     const controls = animate(count, 100, {
@@ -21,7 +21,6 @@ export function HeroSection({ onScrollToAbout }: HeroSectionProps) {
     return controls.stop;
   }, [count]);
 
-  // Typing effect
   useEffect(() => {
     let currentIndex = 0;
     const typingInterval = setInterval(() => {
@@ -38,7 +37,26 @@ export function HeroSection({ onScrollToAbout }: HeroSectionProps) {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Floating shapes background */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 bg-grid-pattern animate-grid-move" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
+      </div>
+
+      <div className="absolute inset-0 opacity-30">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-primary rounded-full animate-float-dot"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${3 + Math.random() * 4}s`,
+            }}
+          />
+        ))}
+      </div>
+
       <FloatingShapes />
 
       <div className="container mx-auto px-6 relative z-10">
@@ -48,6 +66,26 @@ export function HeroSection({ onScrollToAbout }: HeroSectionProps) {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
+          <motion.div
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="mb-6 relative inline-block"
+          >
+            <motion.div
+              className="w-32 h-32 bg-gradient-to-r from-[#4785ff] via-[#ff153c] to-[#3f3f46] rounded-full blur-3xl opacity-30 mx-auto"
+              animate={{
+                scale: [1, 1.2, 1],
+                rotate: [0, 180, 360],
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            />
+          </motion.div>
+
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -61,7 +99,7 @@ export function HeroSection({ onScrollToAbout }: HeroSectionProps) {
                 transition={{
                   duration: 0.8,
                   repeat: Infinity,
-                  repeatType: 'reverse',
+                  repeatType: "reverse",
                 }}
                 className="inline-block w-1 h-16 md:h-24 bg-primary ml-2 align-middle"
               />
@@ -92,8 +130,7 @@ export function HeroSection({ onScrollToAbout }: HeroSectionProps) {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8"
           >
-            심플하고 인터랙티브한 웹 경험을 만드는 것을 즐기는 프론트엔드
-            개발자입니다.
+            심플하고 인터랙티브한 웹 경험을 만드는 것을 즐기는 프론트엔드 개발자입니다.
           </motion.p>
 
           <motion.div
@@ -112,7 +149,7 @@ export function HeroSection({ onScrollToAbout }: HeroSectionProps) {
                 transition={{
                   duration: 2,
                   repeat: Infinity,
-                  ease: 'linear',
+                  ease: "linear",
                 }}
               >
                 ⚡
@@ -155,7 +192,6 @@ export function HeroSection({ onScrollToAbout }: HeroSectionProps) {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.button
         onClick={onScrollToAbout}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
