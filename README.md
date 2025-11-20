@@ -1,4 +1,4 @@
-# 포트폴리오 (NEW)
+# 포트폴리오
 
 나만의 경험과 프로젝트를 소개하는 개인 포트폴리오 웹사이트입니다.
 React와 TypeScript를 기반으로 구축되었으며, 모던한 UI/UX를 위해 Tailwind CSS와 Framer Motion을 활용했습니다.

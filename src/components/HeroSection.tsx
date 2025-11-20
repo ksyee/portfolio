@@ -1,26 +1,17 @@
-import {
-  motion,
-  useMotionValue,
-  useTransform,
-  animate,
-} from "motion/react";
-import { ChevronDown, Sparkles } from "lucide-react";
-import { FloatingShapes } from "./FloatingShapes";
-import { useEffect, useState } from "react";
+import { motion, useMotionValue, useTransform, animate } from 'motion/react';
+import { ChevronDown } from 'lucide-react';
+import { FloatingShapes } from './FloatingShapes';
+import { useEffect, useState } from 'react';
 
 interface HeroSectionProps {
   onScrollToAbout: () => void;
 }
 
-export function HeroSection({
-  onScrollToAbout,
-}: HeroSectionProps) {
+export function HeroSection({ onScrollToAbout }: HeroSectionProps) {
   const count = useMotionValue(0);
-  const rounded = useTransform(count, (latest) =>
-    Math.round(latest),
-  );
-  const [typedText, setTypedText] = useState("");
-  const fullName = "강선영";
+  const rounded = useTransform(count, (latest) => Math.round(latest));
+  const [typedText, setTypedText] = useState('');
+  const fullName = '강선영';
 
   useEffect(() => {
     const controls = animate(count, 100, {
@@ -57,44 +48,6 @@ export function HeroSection({
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <motion.div
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="mb-6 relative"
-          >
-            <motion.div
-              className="absolute -inset-4 bg-gradient-to-r from-[#4785ff] via-[#ff153c] to-[#3f3f46] rounded-full blur-2xl opacity-30"
-              animate={{
-                scale: [1, 1.2, 1],
-                rotate: [0, 180, 360],
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-            />
-            <div className="w-24 h-24 bg-gradient-to-br from-primary to-muted-foreground rounded-full mx-auto flex items-center justify-center relative border-2 border-primary/20">
-              <span className="text-4xl text-primary-foreground">
-                KS
-              </span>
-            </div>
-            <motion.div
-              className="absolute -top-2 -right-2"
-              animate={{
-                scale: [1, 1.2, 1],
-                rotate: [0, 360],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-              }}
-            >
-              <Sparkles className="w-6 h-6 text-[#4785ff]" />
-            </motion.div>
-          </motion.div>
-
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -108,7 +61,7 @@ export function HeroSection({
                 transition={{
                   duration: 0.8,
                   repeat: Infinity,
-                  repeatType: "reverse",
+                  repeatType: 'reverse',
                 }}
                 className="inline-block w-1 h-16 md:h-24 bg-primary ml-2 align-middle"
               />
@@ -139,8 +92,8 @@ export function HeroSection({
             transition={{ delay: 0.6, duration: 0.8 }}
             className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8"
           >
-            심플하고 인터랙티브한 웹 경험을 만드는 것을 즐기는
-            프론트엔드 개발자입니다.
+            심플하고 인터랙티브한 웹 경험을 만드는 것을 즐기는 프론트엔드
+            개발자입니다.
           </motion.p>
 
           <motion.div
@@ -159,7 +112,7 @@ export function HeroSection({
                 transition={{
                   duration: 2,
                   repeat: Infinity,
-                  ease: "linear",
+                  ease: 'linear',
                 }}
               >
                 ⚡

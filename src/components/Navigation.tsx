@@ -38,7 +38,9 @@ export function Navigation({ isDark, toggleTheme }: NavigationProps) {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background/90 backdrop-blur-md shadow-md' : 'bg-transparent'
+        isScrolled
+          ? 'bg-background/90 backdrop-blur-md shadow-md'
+          : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6 py-4">
@@ -49,7 +51,7 @@ export function Navigation({ isDark, toggleTheme }: NavigationProps) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            KS
+            KSYEE
           </motion.button>
 
           <div className="flex items-center gap-8">
@@ -66,9 +68,7 @@ export function Navigation({ isDark, toggleTheme }: NavigationProps) {
                   transition={{ delay: index * 0.1 }}
                 >
                   {item.label}
-                  <motion.span
-                    className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"
-                  />
+                  <motion.span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
                 </motion.button>
               ))}
             </div>
@@ -80,7 +80,11 @@ export function Navigation({ isDark, toggleTheme }: NavigationProps) {
               whileTap={{ scale: 0.95 }}
               aria-label="Toggle theme"
             >
-              {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              {isDark ? (
+                <Sun className="w-5 h-5" />
+              ) : (
+                <Moon className="w-5 h-5" />
+              )}
             </motion.button>
           </div>
         </div>
