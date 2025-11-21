@@ -46,6 +46,7 @@ export const skills: Skill[] = [
     level: 90,
     description: 'Semantic HTML5',
   },
+
   {
     id: 2,
     title: 'CSS',

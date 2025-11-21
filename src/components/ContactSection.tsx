@@ -18,8 +18,8 @@ export function ContactSection() {
     {
       icon: <Mail className="w-6 h-6" />,
       label: 'Email',
-      value: 'contact@ksyee.dev',
-      href: 'mailto:contact@ksyee.dev',
+      value: 'tjssud0647@gmail.com',
+      href: 'mailto:tjssud0647@gmail.com',
     },
     {
       icon: <FileText className="w-6 h-6" />,
